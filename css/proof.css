@@ -1,0 +1,115 @@
+/* ============================================================
+   PROOF PAGE STYLES
+   Placeholder galleries. The .placeholder blocks are meant to be
+   swapped for real <img> / <video> later — see proof.html comments.
+   ============================================================ */
+
+.proof-hero {
+  text-align: center;
+  padding: clamp(64px, 10vw, 110px) 0 16px;
+}
+
+.proof-hero .eyebrow { margin-bottom: 24px; }
+
+.proof-hero p {
+  max-width: 560px;
+  margin: 18px auto 0;
+}
+
+/* Each proof block (Gallery, Videos, Results, Performance) */
+.proof-block {
+  padding: clamp(48px, 7vw, 80px) 0;
+  border-top: 1px solid var(--border-soft);
+}
+
+.proof-block h2 {
+  margin-bottom: 8px;
+}
+
+.proof-block .block-note {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 36px;
+}
+
+/* Responsive grids per block */
+.proof-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+/* ---------- PLACEHOLDER CARDS ----------
+   Replace the inner content with a real image or video.
+   Keep the .placeholder wrapper for consistent sizing, or
+   drop it once real media is in place. */
+.placeholder {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 220px;
+  background: var(--bg-2);
+  border: 1px dashed var(--border-copper);
+  border-radius: var(--radius);
+  text-align: center;
+  padding: 24px;
+  transition: border-color 0.3s var(--ease);
+}
+
+.placeholder:hover {
+  border-color: var(--accent);
+}
+
+/* The 16:9 variant for video slots */
+.placeholder.video {
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+}
+
+.placeholder .ph-label {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+.placeholder .ph-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  max-width: 220px;
+}
+
+/* A simple framed-corner motif so empty slots still look intentional */
+.placeholder::before,
+.placeholder::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: var(--accent);
+  border-style: solid;
+  opacity: 0.5;
+}
+.placeholder::before {
+  top: 12px; left: 12px;
+  border-width: 1px 0 0 1px;
+}
+.placeholder::after {
+  bottom: 12px; right: 12px;
+  border-width: 0 1px 1px 0;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 820px) {
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .grid-3,
+  .grid-2 { grid-template-columns: 1fr; }
+}

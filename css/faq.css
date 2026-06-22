@@ -1,0 +1,75 @@
+/* ============================================================
+   FAQ STYLES  (reusable accordion)
+   Reserved per the project structure. No FAQ page ships yet, but
+   these styles are ready to drop into a future faq.html or a FAQ
+   section on any page. The markup pattern is documented below.
+
+   USAGE (when ready):
+   <div class="faq-list">
+     <details class="faq-item">
+       <summary>Your question here</summary>
+       <div class="faq-answer"><p>Your answer here.</p></div>
+     </details>
+   </div>
+   ============================================================ */
+
+.faq-section {
+  padding: clamp(64px, 10vw, 110px) 0;
+}
+
+.faq-list {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.faq-item {
+  background: var(--bg-2);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: border-color 0.3s var(--ease);
+}
+
+.faq-item[open] {
+  border-color: var(--border-copper);
+}
+
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 22px 26px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--text-0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+/* Copper plus / minus indicator */
+.faq-item summary::after {
+  content: "+";
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: 1.3rem;
+  transition: transform 0.3s var(--ease);
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  padding: 0 26px 24px;
+}
+
+.faq-answer p {
+  font-size: 0.95rem;
+  color: var(--text-2);
+}

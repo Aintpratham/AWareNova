@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova Phase5 — Automated simplicity</title>
+  <meta name="description" content="Nova Phase5 is automation software built for reliable, fast monitoring on Windows and macOS. Automated simplicity." />
+
+  <!-- Fonts: Space Grotesk (display), Inter (body), JetBrains Mono (utility) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles: global + page-specific -->
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+<body>
+
+  <!-- ============ NAVIGATION ============
+       Duplicated across pages so the site needs no build step.
+       Update links here AND in every file under /pages. -->
+  <nav class="site-nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">Nova<span class="mark">Phase5</span></a>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+        <li><a href="pages/proof.html">Proof</a></li>
+        <li><a href="pages/pricing.html">Pricing</a></li>
+        <li><a href="pages/setup.html">Setup</a></li>
+        <li><a href="pages/contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <header class="hero">
+      <div class="container">
+        <span class="eyebrow">Phase 5 &nbsp;//&nbsp; Automation Suite</span>
+        <h1>Nova Phase5</h1>
+        <p class="hero-sub">Automated simplicity.</p>
+        <p class="hero-intro">
+          Nova handles the repetitive work for you — watching continuously,
+          acting the moment conditions are met, and staying out of your way.
+          Built to run reliably across Windows and macOS.
+        </p>
+        <div class="hero-actions">
+          <a href="pages/proof.html" class="btn btn-primary">View Proof</a>
+          <a href="pages/pricing.html" class="btn btn-secondary">View Pricing</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============ WHY NOVA ============ -->
+    <section class="section why">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Why Nova</span>
+          <h2>Engineered to stay out of your way</h2>
+          <p>Four things Nova gets right so you can stop watching the screen.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <span class="index">01</span>
+            <h3>Fast monitoring</h3>
+            <p>Continuous, low-latency checks that react the instant something changes.</p>
+          </article>
+
+          <article class="feature-card reveal" data-delay="80">
+            <span class="index">02</span>
+            <h3>Windows support</h3>
+            <p>Runs natively on Windows with no extra configuration or workarounds.</p>
+          </article>
+
+          <article class="feature-card reveal" data-delay="160">
+            <span class="index">03</span>
+            <h3>macOS support</h3>
+            <p>First-class macOS support — the same workflow, the same speed.</p>
+          </article>
+
+          <article class="feature-card reveal" data-delay="240">
+            <span class="index">04</span>
+            <h3>Reliable infrastructure</h3>
+            <p>Backed by managed cloud infrastructure with built-in recovery.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">Nova<span class="mark">Phase5</span></a>
+          <p>Automation software for fast, reliable monitoring on Windows and macOS.</p>
+        </div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pages/proof.html">Proof</a></li>
+          <li><a href="pages/pricing.html">Pricing</a></li>
+          <li><a href="pages/setup.html">Setup</a></li>
+          <li><a href="pages/terms.html">Terms</a></li>
+          <li><a href="pages/privacy.html">Privacy</a></li>
+          <li><a href="pages/contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span data-year>2026</span> Nova Phase5. All rights reserved.</span>
+        <span>A Pratham Shah production</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>

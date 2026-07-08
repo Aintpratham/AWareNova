@@ -48,16 +48,16 @@
     <!-- ====================================================
          PRICING PLANS
 
-         PAYMENT FLOW (live — Stripe Checkout):
-           Get Started
-             -> Stripe Payment Link (Checkout)
-             -> Payment success  (configure success URL in Stripe)
-             -> License generated + delivered  (webhook -> license)
+         Each "Get Started" button now opens the on-site checkout,
+         carrying the chosen plan in the URL:
+           Base     -> checkout.html?plan=base
+           Standard -> checkout.html?plan=standard
+           Premium  -> checkout.html?plan=premium
 
-         Each "Get Started" button links directly to its Stripe
-         Payment Link. To finish the flow, set each link's success
-         URL in the Stripe dashboard to point at an order-success
-         page that triggers license creation + delivery.
+         Checkout collects the customer's details and (once wired)
+         hands off to Stripe via the Railway backend. Plan facts
+         (price / duration / devices) live in ONE config object in
+         js/checkout.js so they never need editing in two places.
          ==================================================== -->
     <section class="section pricing-section">
       <div class="container">
@@ -76,7 +76,7 @@
               <li>Updates included</li>
             </ul>
 
-            <a href="https://buy.stripe.com/28EdR9ceqeXB68yawB1sQ00" class="btn btn-secondary btn-block">Get Started</a>
+            <a href="checkout.html?plan=base" class="btn btn-secondary btn-block">Get Started</a>
             <p class="plan-support">Email support</p>
           </article>
 
@@ -94,7 +94,7 @@
               <li>Priority email support</li>
             </ul>
 
-            <a href="https://buy.stripe.com/eVq9ATfqC5n12Wm0W11sQ01" class="btn btn-primary btn-block">Get Started</a>
+            <a href="checkout.html?plan=standard" class="btn btn-primary btn-block">Get Started</a>
             <p class="plan-support">Priority email support</p>
           </article>
 
@@ -111,13 +111,13 @@
               <li>Best value per day</li>
             </ul>
 
-            <a href="https://buy.stripe.com/aFaaEX0vI3eT0OeawB1sQ05" class="btn btn-secondary btn-block">Get Started</a>
+            <a href="checkout.html?plan=premium" class="btn btn-secondary btn-block">Get Started</a>
             <p class="plan-support">Priority email support</p>
           </article>
 
         </div>
 
-        <p class="pricing-note reveal">Secure checkout by Stripe. Questions before you buy? Reach us on the <a href="contact.html">contact page</a>.</p>
+        <p class="pricing-note reveal">Questions before you buy? Reach us on the <a href="contact.html">contact page</a>.</p>
       </div>
     </section>
 

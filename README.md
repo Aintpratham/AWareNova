@@ -87,9 +87,10 @@ Everything below is marked with `TODO` or `REPLACE` comments in the code.
 
 | Task | File | Look for |
 | --- | --- | --- |
-| Stripe payment links | `pages/pricing.html` | `TODO (Stripe Checkout)` |
-| Enable checkout buttons | `pages/pricing.html` | remove `is-disabled` / `aria-disabled` |
-| Order success + license delivery | `pages/pricing.html` | `PAYMENT FLOW (future)` |
+| Wire checkout -> Railway (create session) | `js/checkout.js` | `TODO:` in `handleSubmit()` |
+| Wire success -> Railway (fetch license) | `js/success.js` | `TODO:` block |
+| Plan pricing / duration / devices | `js/checkout.js` | `PLANS` config object (edit once) |
+| Enable success download button | `js/success.js` | `showLicense()` (removes `is-disabled`) |
 | Proof screenshots / videos | `pages/proof.html` | `.media-blur` slots |
 | Blurred preview thumbs (home) | `index.html` | `.preview-blur` slots |
 | Download link | `pages/setup.html` | `TODO (License Downloads)` |
@@ -99,6 +100,10 @@ Everything below is marked with `TODO` or `REPLACE` comments in the code.
 | Contact form backend | `pages/contact.html` | `CONTACT FORM (future)` |
 | Account / login nav | any page | `TODO (Account Login)` |
 | OG share image + URL | `index.html` | commented `og:` tags |
+
+### Purchase flow (pages)
+
+`pages/pricing.html` -> `pages/checkout.html?plan=base|standard|premium` -> (Stripe, once wired) -> `pages/success.html?session_id=...`, or `pages/cancel.html` if abandoned. `success.html` and `cancel.html` are intentionally kept out of the nav (they're `noindex` and only reached via the flow). The only remaining work is connecting `js/checkout.js` and `js/success.js` to the Railway backend at the two `TODO:` markers.
 
 Support address used site-wide: **support@awarenova.ca**
 

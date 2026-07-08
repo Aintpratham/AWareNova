@@ -1,115 +1,160 @@
 /* ============================================================
    PROOF PAGE STYLES
-   Placeholder galleries. The .placeholder blocks are meant to be
-   swapped for real <img> / <video> later — see proof.html comments.
+   Modern media gallery. Each .media-card holds a blurred preview
+   placeholder — swap the .media-blur for a real (pre-blurred)
+   <img>/<video> later. See proof.html comments.
    ============================================================ */
 
 .proof-hero {
   text-align: center;
-  padding: clamp(64px, 10vw, 110px) 0 16px;
+  padding: clamp(56px, 11vw, 110px) 0 clamp(20px, 4vw, 32px);
 }
 
-.proof-hero .eyebrow { margin-bottom: 24px; }
+.proof-hero .eyebrow { margin-bottom: 22px; }
 
 .proof-hero p {
-  max-width: 560px;
+  max-width: 580px;
   margin: 18px auto 0;
+  font-size: 1.05rem;
 }
 
-/* Each proof block (Gallery, Videos, Results, Performance) */
+/* Each proof block (Screenshots, Videos, Results) */
 .proof-block {
-  padding: clamp(48px, 7vw, 80px) 0;
+  padding: clamp(44px, 8vw, 80px) 0;
   border-top: 1px solid var(--border-soft);
 }
 
-.proof-block h2 {
-  margin-bottom: 8px;
-}
+.block-head { margin-bottom: clamp(28px, 5vw, 40px); }
 
-.proof-block .block-note {
+.block-head h2 { margin-bottom: 8px; }
+
+.block-note {
   color: var(--text-muted);
-  font-size: 0.95rem;
-  margin-bottom: 36px;
+  font-size: 0.98rem;
 }
 
-/* Responsive grids per block */
+/* Responsive grids per block — mobile-first single column */
 .proof-grid {
   display: grid;
-  gap: 20px;
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 
-.grid-3 { grid-template-columns: repeat(3, 1fr); }
-.grid-2 { grid-template-columns: repeat(2, 1fr); }
-
-/* ---------- PLACEHOLDER CARDS ----------
-   Replace the inner content with a real image or video.
-   Keep the .placeholder wrapper for consistent sizing, or
-   drop it once real media is in place. */
-.placeholder {
+/* ---------- MEDIA CARDS ----------
+   Replace the inner .media-blur with a real image or video.
+   Keep the .media-card wrapper for consistent sizing. */
+.media-card {
   position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--bg-2);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.media-card:hover {
+  border-color: var(--border-copper);
+  transform: translateY(-4px);
+}
+
+.media-card.video { aspect-ratio: 16 / 9; }
+
+/* Blurred placeholder texture. TODO (Proof Media Management):
+   replace with a pre-blurred <img> so nothing sensitive shows. */
+.media-blur {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 28% 30%, rgba(197, 139, 92, 0.2), transparent 46%),
+    radial-gradient(circle at 78% 62%, rgba(197, 139, 92, 0.1), transparent 52%),
+    repeating-linear-gradient(115deg, rgba(255,255,255,0.035) 0 16px, transparent 16px 34px),
+    var(--bg-3);
+  filter: blur(7px);
+  transform: scale(1.12);
+}
+
+.media-tag {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  background: rgba(5, 5, 5, 0.6);
+  border: 1px solid var(--border-soft);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+/* Play affordance on video cards */
+.media-card .play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  z-index: 2;
+  width: 60px;
+  height: 60px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  min-height: 220px;
-  background: var(--bg-2);
-  border: 1px dashed var(--border-copper);
-  border-radius: var(--radius);
-  text-align: center;
-  padding: 24px;
-  transition: border-color 0.3s var(--ease);
-}
-
-.placeholder:hover {
-  border-color: var(--accent);
-}
-
-/* The 16:9 variant for video slots */
-.placeholder.video {
-  aspect-ratio: 16 / 9;
-  min-height: 0;
-}
-
-.placeholder .ph-label {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
+  border-radius: 50%;
+  background: rgba(197, 139, 92, 0.16);
+  border: 1px solid var(--accent);
   color: var(--accent);
+  transition: transform 0.3s var(--ease), background-color 0.3s var(--ease);
 }
 
-.placeholder .ph-hint {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  max-width: 220px;
+.media-card .play svg { width: 24px; height: 24px; margin-left: 3px; }
+
+.media-card.video:hover .play {
+  transform: scale(1.08);
+  background: rgba(197, 139, 92, 0.26);
 }
 
-/* A simple framed-corner motif so empty slots still look intentional */
-.placeholder::before,
-.placeholder::after {
+/* Framed-corner motif so cards read as intentional while empty */
+.media-card::before,
+.media-card::after {
   content: "";
   position: absolute;
   width: 16px;
   height: 16px;
   border-color: var(--accent);
   border-style: solid;
-  opacity: 0.5;
+  opacity: 0.45;
+  z-index: 2;
 }
-.placeholder::before {
-  top: 12px; left: 12px;
-  border-width: 1px 0 0 1px;
-}
-.placeholder::after {
-  bottom: 12px; right: 12px;
-  border-width: 0 1px 1px 0;
+.media-card::before { top: 12px; left: 12px; border-width: 1px 0 0 1px; }
+.media-card::after { top: 12px; right: 12px; border-width: 1px 1px 0 0; }
+
+/* ---------- CTA ---------- */
+.proof-cta { border-top: 1px solid var(--border-soft); }
+
+.proof-cta-card {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: clamp(32px, 7vw, 52px);
+  background: linear-gradient(180deg, rgba(197, 139, 92, 0.06), var(--bg-2) 45%);
+  border: 1px solid var(--border-copper);
+  border-radius: var(--radius);
 }
 
+.proof-cta-card h2 { margin-bottom: 12px; }
+.proof-cta-card p { margin-bottom: 28px; color: var(--text-2); }
+
 /* ---------- RESPONSIVE ---------- */
-@media (max-width: 820px) {
+@media (min-width: 640px) {
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 560px) {
-  .grid-3,
-  .grid-2 { grid-template-columns: 1fr; }
+@media (min-width: 960px) {
+  .proof-grid { gap: 20px; }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
 }

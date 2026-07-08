@@ -23,5 +23,5 @@
 
   /* Light brand signature for anyone who opens the console. */
   console.log("%cNova Phase5", "color:#C58B5C;font-weight:bold;font-size:14px;");
-  console.log("%cAutomated simplicity.", "color:#8A8A8A;");
+  console.log("%cBuilt for Amazon warehouse applicants.", "color:#8A8A8A;");
 })();

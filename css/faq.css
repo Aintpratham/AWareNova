@@ -1,10 +1,8 @@
 /* ============================================================
    FAQ STYLES  (reusable accordion)
-   Reserved per the project structure. No FAQ page ships yet, but
-   these styles are ready to drop into a future faq.html or a FAQ
-   section on any page. The markup pattern is documented below.
+   Used on the home page FAQ and ready for any future faq.html.
 
-   USAGE (when ready):
+   USAGE:
    <div class="faq-list">
      <details class="faq-item">
        <summary>Your question here</summary>
@@ -13,16 +11,12 @@
    </div>
    ============================================================ */
 
-.faq-section {
-  padding: clamp(64px, 10vw, 110px) 0;
-}
-
 .faq-list {
   max-width: 760px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .faq-item {
@@ -40,9 +34,10 @@
 .faq-item summary {
   cursor: pointer;
   list-style: none;
-  padding: 22px 26px;
+  padding: 20px 22px;
+  min-height: 60px;
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   color: var(--text-0);
   display: flex;
   justify-content: space-between;
@@ -57,19 +52,18 @@
   content: "+";
   font-family: var(--font-mono);
   color: var(--accent);
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  line-height: 1;
   transition: transform 0.3s var(--ease);
+  flex-shrink: 0;
 }
 
-.faq-item[open] summary::after {
-  transform: rotate(45deg);
-}
+.faq-item[open] summary::after { transform: rotate(45deg); }
 
-.faq-answer {
-  padding: 0 26px 24px;
-}
+.faq-answer { padding: 0 22px 22px; }
 
 .faq-answer p {
-  font-size: 0.95rem;
+  font-size: 0.96rem;
   color: var(--text-2);
+  line-height: 1.65;
 }

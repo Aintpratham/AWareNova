@@ -2,9 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nova — Automated simplicity</title>
-  <meta name="description" content="Nova Phase5 is automation software built for reliable, fast monitoring on Windows and macOS. Automated simplicity." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Nova Phase5 — The fastest way to secure Amazon warehouse shifts</title>
+  <meta name="description" content="Nova watches for new Amazon warehouse opportunities and reacts immediately, so you stay ahead without constantly refreshing the jobs website. Windows and macOS." />
+  <meta name="theme-color" content="#050505" />
+
+  <!-- Open Graph (awarenova.ca) -->
+  <meta property="og:title" content="Nova Phase5 — Secure Amazon warehouse shifts faster" />
+  <meta property="og:description" content="Stay ahead of new Amazon warehouse opportunities without constantly refreshing." />
+  <meta property="og:type" content="website" />
+  <!-- TODO: set absolute URL + share image once deployed to awarenova.ca -->
+  <!-- <meta property="og:url" content="https://awarenova.ca/" /> -->
+  <!-- <meta property="og:image" content="https://awarenova.ca/assets/images/og.png" /> -->
 
   <!-- Fonts: Space Grotesk (display), Inter (body), JetBrains Mono (utility) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,12 +23,14 @@
   <!-- Styles: global + page-specific -->
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/faq.css" />
 </head>
 <body>
 
   <!-- ============ NAVIGATION ============
-       Duplicated across pages so the site needs no build step.
-       Update links here AND in every file under /pages. -->
+       Simplified to Home / Proof / Get Started. Everything else
+       lives in the footer. Duplicated across pages so the site
+       needs no build step — update here AND in every /pages file. -->
   <nav class="site-nav">
     <div class="container">
       <a href="index.html" class="nav-logo">Nova<span class="mark">Phase5</span></a>
@@ -31,9 +42,10 @@
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html" class="active" aria-current="page">Home</a></li>
         <li><a href="pages/proof.html">Proof</a></li>
-        <li><a href="pages/pricing.html">Pricing</a></li>
-        <li><a href="pages/setup.html">Setup</a></li>
-        <li><a href="pages/contact.html">Contact</a></li>
+        <!-- TODO (Account Login): enable once customer accounts exist
+        <li><a href="pages/login.html">Sign in</a></li>
+        -->
+        <li><a href="pages/pricing.html" class="nav-cta">Get Started</a></li>
       </ul>
     </div>
   </nav>
@@ -43,54 +55,223 @@
     <!-- ============ HERO ============ -->
     <header class="hero">
       <div class="container">
-        <span class="eyebrow">Phase 5 &nbsp;//&nbsp; Automation Suite</span>
-        <h1>NOVA</h1>
-        <p class="hero-sub">Automated simplicity.</p>
+        <span class="eyebrow">Awarenova</span>
+        <h1>The fastest way to secure Amazon warehouse shifts.</h1>
         <p class="hero-intro">
-          Nova handles the repetitive work for you — watching continuously,
-          acting the moment conditions are met, and staying out of your way.
-          Built to run reliably across Windows and macOS.
+          Nova continuously watches for new warehouse opportunities and reacts
+          immediately, helping you stay ahead without constantly refreshing the
+          Amazon jobs website.
         </p>
         <div class="hero-actions">
-          <a href="pages/proof.html" class="btn btn-primary">View Proof</a>
-          <a href="pages/pricing.html" class="btn btn-secondary">View Pricing</a>
+          <a href="pages/pricing.html" class="btn btn-primary btn-block">Get Started</a>
+          <a href="pages/proof.html" class="btn btn-secondary btn-block">See Proof</a>
         </div>
+        <p class="hero-name"><strong>Awarenova</strong>&nbsp;&nbsp;//&nbsp;&nbsp;Amazon Warehouse Nova</p>
       </div>
     </header>
 
-    <!-- ============ WHY NOVA ============ -->
-    <section class="section why">
+    <!-- ============ 1. PROBLEM ============ -->
+    <section class="section problem panel">
       <div class="container">
         <div class="section-head reveal">
-          <span class="eyebrow">Why Nova ?</span>
-          <h2>Engineered to stay out of your way</h2>
-          <p>Four things Nova gets right so you can stop watching the screen.</p>
+          <span class="eyebrow">The problem</span>
+          <h2>Amazon warehouse shifts disappear in seconds.</h2>
+          <p>
+            Many warehouse opportunities are filled almost as soon as they open.
+            Checking the jobs website by hand means refreshing constantly and
+            still arriving late, because the openings that matter are gone before
+            most applicants ever see them.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 2. HOW NOVA HELPS ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head centered reveal">
+          <span class="eyebrow">How Nova helps</span>
+          <h2>Stay ahead without watching the screen</h2>
         </div>
 
-        <div class="feature-grid">
-          <article class="feature-card reveal">
-            <span class="index">01</span>
-            <h3>Fast Polling</h3>
-            <p>F</p>
+        <div class="help-grid">
+          <article class="help-card reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="3" /><circle cx="12" cy="12" r="9" />
+            </svg>
+            <h3>Continuous monitoring</h3>
+            <p>Nova watches for new opportunities so you don't have to keep checking the jobs website yourself.</p>
           </article>
 
-          <article class="feature-card reveal" data-delay="80">
-            <span class="index">02</span>
-            <h3>Windows support</h3>
-            <p>Runs natively on Windows with no extra configuration or workarounds.</p>
+          <article class="help-card reveal" data-delay="80">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z" />
+            </svg>
+            <h3>Immediate detection</h3>
+            <p>Respond the moment opportunities become available, instead of finding out after they're already taken.</p>
           </article>
 
-          <article class="feature-card reveal" data-delay="160">
-            <span class="index">03</span>
-            <h3>macOS support</h3>
-            <p>First-class macOS support — the same workflow, the same speed.</p>
+          <article class="help-card reveal" data-delay="160">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" />
+            </svg>
+            <h3>Simple setup</h3>
+            <p>Get started quickly with minimal configuration. Nova is ready to work in just a few steps.</p>
           </article>
+        </div>
+      </div>
+    </section>
 
-          <article class="feature-card reveal" data-delay="240">
-            <span class="index">04</span>
-            <h3>Reliable infrastructure</h3>
-            <p>Backed by managed cloud infrastructure with built-in recovery.</p>
-          </article>
+    <!-- ============ 3. WHY PEOPLE CHOOSE NOVA ============ -->
+    <section class="section choose panel">
+      <div class="container">
+        <div class="section-head centered reveal">
+          <span class="eyebrow">Why choose Nova</span>
+          <h2>Built to be dependable</h2>
+        </div>
+
+        <div class="choose-grid">
+          <div class="choose-item reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="13" rx="1.5" /><path d="M8 20h8M12 17v3" />
+            </svg>
+            <span>Works on Windows</span>
+          </div>
+
+          <div class="choose-item reveal" data-delay="60">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="13" rx="1.5" /><path d="M2 20h20" />
+            </svg>
+            <span>Works on macOS</span>
+          </div>
+
+          <div class="choose-item reveal" data-delay="120">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="4" y="10" width="16" height="11" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" />
+            </svg>
+            <span>Simple licensing</span>
+          </div>
+
+          <div class="choose-item reveal" data-delay="180">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 7 9 18l-5-5" /><path d="M14 4h6v6" />
+            </svg>
+            <span>Designed for warehouse applicants</span>
+          </div>
+
+          <div class="choose-item reveal" data-delay="240">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12a9 9 0 1 1-3-6.7" /><path d="M21 4v4h-4" />
+            </svg>
+            <span>Reliable updates</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. INCOME OPPORTUNITY ============ -->
+    <section class="section income">
+      <div class="container">
+        <div class="income-card reveal">
+          <span class="eyebrow">Why it's worth it</span>
+          <h2>Warehouse shifts add up</h2>
+          <p>
+            Amazon warehouse positions commonly offer competitive hourly wages
+            depending on location, shift type, and season.
+          </p>
+          <p>
+            Nova helps reduce the effort required to find those opportunities, so
+            the time you'd spend refreshing goes toward actually working them.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. PROOF PREVIEW ============ -->
+    <section class="section proof-preview panel">
+      <div class="container">
+        <div class="section-head centered reveal">
+          <span class="eyebrow">Proof</span>
+          <h2>See Nova in action</h2>
+          <p>Screenshots and recordings from real use. Sensitive details are kept private.</p>
+        </div>
+
+        <!-- Blurred preview cards. TODO (Proof Media Management):
+             replace each .preview-blur with a pre-blurred <img>. -->
+        <div class="preview-grid">
+          <figure class="preview-card reveal">
+            <div class="preview-blur"></div>
+            <div class="lock">
+              <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="4" y="10" width="16" height="11" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" />
+              </svg>
+              <span>Preview</span>
+            </div>
+          </figure>
+          <figure class="preview-card reveal" data-delay="80">
+            <div class="preview-blur"></div>
+            <div class="lock">
+              <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="4" y="10" width="16" height="11" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" />
+              </svg>
+              <span>Preview</span>
+            </div>
+          </figure>
+          <figure class="preview-card reveal" data-delay="160">
+            <div class="preview-blur"></div>
+            <div class="lock">
+              <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="4" y="10" width="16" height="11" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" />
+              </svg>
+              <span>Preview</span>
+            </div>
+          </figure>
+        </div>
+
+        <div class="cta-row reveal">
+          <a href="pages/proof.html" class="btn btn-secondary">View Full Proof</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. FAQ ============ -->
+    <section class="section faq-home">
+      <div class="container">
+        <div class="section-head centered reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2>Common questions</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item reveal">
+            <summary>What does Nova do?</summary>
+            <div class="faq-answer"><p>Nova continuously watches for new Amazon warehouse opportunities and reacts immediately, so you can respond before openings fill.</p></div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>Who is this designed for?</summary>
+            <div class="faq-answer"><p>Anyone applying for Amazon warehouse shifts who wants to stay ahead of fast-moving openings without refreshing the jobs website by hand.</p></div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>Does it work on Windows?</summary>
+            <div class="faq-answer"><p>Yes. Nova runs on Windows with no extra configuration.</p></div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>Does it work on macOS?</summary>
+            <div class="faq-answer"><p>Yes. macOS is fully supported, with the same workflow and speed.</p></div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>How long does setup take?</summary>
+            <div class="faq-answer"><p>Only a few minutes. Setup is a short, guided process with minimal configuration.</p></div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>Do I receive updates?</summary>
+            <div class="faq-answer"><p>Yes. Your license includes updates for the duration of your plan.</p></div>
+          </details>
         </div>
       </div>
     </section>
@@ -103,21 +284,41 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a href="index.html" class="nav-logo">Nova<span class="mark">Phase5</span></a>
-          <p>Automation software for fast, reliable monitoring on Windows and macOS.</p>
+          <p>Built for Amazon warehouse applicants. Stay ahead of new shifts on Windows and macOS.</p>
         </div>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="pages/proof.html">Proof</a></li>
-          <li><a href="pages/pricing.html">Pricing</a></li>
-          <li><a href="pages/setup.html">Setup</a></li>
-          <li><a href="pages/terms.html">Terms</a></li>
-          <li><a href="pages/privacy.html">Privacy</a></li>
-          <li><a href="pages/contact.html">Contact</a></li>
-        </ul>
+
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="pages/proof.html">Proof</a></li>
+              <li><a href="pages/pricing.html">Get Started</a></li>
+              <li><a href="pages/setup.html">Setup</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="pages/contact.html">Contact</a></li>
+              <!-- TODO (Customer Portal): enable when the portal ships
+              <li><a href="pages/account.html">My account</a></li>
+              -->
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="pages/terms.html">Terms</a></li>
+              <li><a href="pages/privacy.html">Privacy</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
+
       <div class="footer-bottom">
-        <span>&copy; <span data-year>2026</span> Nova All rights reserved.</span>
-        <span>A Pratham Shah Production</span>
+        <span>&copy; <span data-year>2026</span> Awarenova. All rights reserved.</span>
+        <span>A Pratham Shah production</span>
       </div>
     </div>
   </footer>

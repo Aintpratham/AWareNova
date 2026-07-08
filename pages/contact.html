@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Contact — Nova Phase5</title>
-  <meta name="description" content="Get in touch with the Nova Phase5 team for support, business, and general inquiries." />
+  <meta name="description" content="Contact Nova Phase5 support for general questions, licensing, and technical help." />
+  <meta name="theme-color" content="#050505" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,9 +26,10 @@
       <ul class="nav-links" id="nav-links">
         <li><a href="../index.html">Home</a></li>
         <li><a href="proof.html">Proof</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="setup.html">Setup</a></li>
-        <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+        <!-- TODO (Account Login): enable once customer accounts exist
+        <li><a href="login.html">Sign in</a></li>
+        -->
+        <li><a href="pricing.html" class="nav-cta">Get Started</a></li>
       </ul>
     </div>
   </nav>
@@ -39,49 +41,55 @@
       <div class="container">
         <span class="eyebrow">Contact</span>
         <h1>Get in touch</h1>
-        <p style="color: var(--text-2); font-family: var(--font-body); letter-spacing: 0; font-size: 1rem; margin-top: 16px;">
-          Reach the right inbox below. We reply as quickly as we can.
-        </p>
+        <p class="hero-lede">One inbox for everything. We reply as quickly as we can.</p>
       </div>
     </header>
 
     <!-- ====================================================
          CONTACT CARDS
-         REPLACE the placeholder email addresses below with real
-         inboxes. Each address is a mailto: link.
+         Single support address for all inquiries.
          ==================================================== -->
     <section class="legal-body">
       <div class="container">
-        <div class="contact-grid">
 
-          <!-- EMAIL SUPPORT -->
-          <article class="contact-card reveal">
-            <span class="label">Email Support</span>
-            <h3>Need help?</h3>
-            <p>Setup questions, licenses, or anything not working as expected.</p>
-            <!-- REPLACE EMAIL -->
-            <a class="mail" href="mailto:support@novaphase5.com">support@novaphase5.com</a>
-          </article>
-
-          <!-- BUSINESS CONTACT -->
-          <article class="contact-card reveal" data-delay="80">
-            <span class="label">Business Contact</span>
-            <h3>Partnerships</h3>
-            <p>Bulk licensing, collaborations, and business opportunities.</p>
-            <!-- REPLACE EMAIL -->
-            <a class="mail" href="mailto:business@novaphase5.com">business@novaphase5.com</a>
-          </article>
-
-          <!-- GENERAL INQUIRIES -->
-          <article class="contact-card reveal" data-delay="160">
-            <span class="label">General Inquiries</span>
-            <h3>Everything else</h3>
-            <p>Feedback, questions, or just saying hello.</p>
-            <!-- REPLACE EMAIL -->
-            <a class="mail" href="mailto:hello@novaphase5.com">hello@novaphase5.com</a>
-          </article>
-
+        <div class="contact-lead reveal">
+          <span class="label">Support</span>
+          <a class="mail-lg" href="mailto:support@awarenova.ca">support@awarenova.ca</a>
         </div>
+
+        <div class="contact-grid">
+          <article class="contact-card reveal">
+            <span class="label">General questions</span>
+            <h3>General</h3>
+            <p>Questions about Nova, plans, or how it works before you buy.</p>
+          </article>
+
+          <article class="contact-card reveal" data-delay="80">
+            <span class="label">Licensing questions</span>
+            <h3>Licensing</h3>
+            <p>License keys, device limits, renewals, and plan changes.</p>
+          </article>
+
+          <article class="contact-card reveal" data-delay="160">
+            <span class="label">Technical support</span>
+            <h3>Technical</h3>
+            <p>Setup help or anything not working the way you expect.</p>
+          </article>
+        </div>
+
+        <!-- ====================================================
+             CONTACT FORM (future — Contact Form Backend)
+             Commented out until a backend/handler exists. When
+             ready, uncomment and wire the submit to your endpoint.
+
+        <form class="contact-form" action="#" method="post">
+          <label>Name<input type="text" name="name" required /></label>
+          <label>Email<input type="email" name="email" required /></label>
+          <label>Message<textarea name="message" rows="5" required></textarea></label>
+          <button type="submit" class="btn btn-primary btn-block">Send message</button>
+        </form>
+        ==================================================== -->
+
       </div>
     </section>
 
@@ -93,20 +101,35 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a href="../index.html" class="nav-logo">Nova<span class="mark">Phase5</span></a>
-          <p>Automation software for fast, reliable monitoring on Windows and macOS.</p>
+          <p>Built for Amazon warehouse applicants. Stay ahead of new shifts on Windows and macOS.</p>
         </div>
-        <ul class="footer-links">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="proof.html">Proof</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="setup.html">Setup</a></li>
-          <li><a href="terms.html">Terms</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="proof.html">Proof</a></li>
+              <li><a href="pricing.html">Get Started</a></li>
+              <li><a href="setup.html">Setup</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="terms.html">Terms</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; <span data-year>2026</span> Nova Phase5. All rights reserved.</span>
+        <span>&copy; <span data-year>2026</span> Awarenova. All rights reserved.</span>
         <span>A Pratham Shah production</span>
       </div>
     </div>

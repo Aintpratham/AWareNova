@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Pricing — Nova Phase5</title>
-  <meta name="description" content="Simple duration-based pricing for Nova Phase5: 30, 60, and 90 day plans." />
+  <meta name="description" content="Simple plans for Nova Phase5. Choose the duration and device count that fits how you apply for Amazon warehouse shifts." />
+  <meta name="theme-color" content="#050505" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,9 +26,10 @@
       <ul class="nav-links" id="nav-links">
         <li><a href="../index.html">Home</a></li>
         <li><a href="proof.html">Proof</a></li>
-        <li><a href="pricing.html" class="active" aria-current="page">Pricing</a></li>
-        <li><a href="setup.html">Setup</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <!-- TODO (Account Login): enable once customer accounts exist
+        <li><a href="login.html">Sign in</a></li>
+        -->
+        <li><a href="pricing.html" class="nav-cta active" aria-current="page">Get Started</a></li>
       </ul>
     </div>
   </nav>
@@ -38,95 +40,89 @@
     <header class="pricing-hero">
       <div class="container">
         <span class="eyebrow">Pricing</span>
-        <h1>Pick a duration</h1>
-        <p>Straightforward access plans. No tiers, no add-ons — just choose how long you need Nova.</p>
+        <h1>Choose your plan</h1>
+        <p>Pick the duration and number of devices that fit how you apply. No add-ons, no surprises.</p>
       </div>
     </header>
 
     <!-- ====================================================
          PRICING PLANS
-         Prices below are PLACEHOLDERS. Update .plan-price values.
 
-         PAYMENT FLOW (future):
-           Customer clicks Buy Now
+         PAYMENT FLOW (future — Stripe Checkout):
+           Get Started
              -> Stripe Checkout
-             -> Payment Successful
-             -> License Generated
-             -> Customer Receives License
+             -> Payment success  (Order Success Page)
+             -> License generated + delivered  (License Downloads)
 
-         Each "Buy Now" button currently points to a placeholder
-         Stripe URL. REPLACE WITH STRIPE PAYMENT LINK below.
-         When the license backend is ready, set the Stripe success
-         URL to trigger license generation + delivery.
+         Each "Get Started" button is intentionally DISABLED and
+         points to "#" until checkout is live. When ready:
+           1. Replace href="#" with the Stripe Payment Link.
+           2. Remove class="is-disabled" and aria-disabled="true".
+           3. Point the Stripe success URL at the order-success page
+              that triggers license creation + delivery.
          ==================================================== -->
-    <section class="section">
+    <section class="section pricing-section">
       <div class="container">
         <div class="pricing-grid">
 
-          <!-- ---------- 30 DAYS ---------- -->
+          <!-- ---------- BASE ---------- -->
           <article class="plan reveal">
-            <span class="plan-tag">Starter</span>
-            <div class="plan-duration">30 Days</div>
-            <!-- REPLACE WITH REAL PRICING -->
-            <div class="plan-price">$00<span> / 30 days</span></div>
-            <p class="plan-meta">Up to 1 device</p>
+            <span class="plan-tag">Base</span>
+            <div class="plan-price">$499</div>
+            <p class="plan-meta">60 days &middot; 1 device</p>
 
             <ul class="plan-features">
               <li>Full Nova Phase5 access</li>
-              <li>Fast monitoring engine</li>
+              <li>Continuous monitoring</li>
               <li>Windows and macOS</li>
-              <li>Automatic updates</li>
+              <li>Updates included</li>
             </ul>
 
-            <!-- REPLACE WITH STRIPE PAYMENT LINK -->
-            <a href="https://buy.stripe.com/REPLACE_30_DAY_LINK"
-               class="btn btn-secondary" rel="noopener">Buy Now</a>
+            <!-- TODO (Stripe Checkout): replace "#" with Base payment link -->
+            <a href="#" class="btn btn-secondary btn-block is-disabled" aria-disabled="true" tabindex="-1">Get Started</a>
             <p class="plan-support">Email support</p>
           </article>
 
-          <!-- ---------- 60 DAYS (featured) ---------- -->
+          <!-- ---------- STANDARD (recommended) ---------- -->
           <article class="plan featured reveal" data-delay="80">
-            <span class="plan-tag">Most popular</span>
-            <div class="plan-duration">60 Days</div>
-            <!-- REPLACE WITH REAL PRICING -->
-            <div class="plan-price">$00<span> / 60 days</span></div>
-            <p class="plan-meta">Up to 2 devices</p>
+            <span class="plan-badge">Recommended</span>
+            <span class="plan-tag">Standard</span>
+            <div class="plan-price">$799</div>
+            <p class="plan-meta">120 days &middot; 2 devices</p>
 
             <ul class="plan-features">
-              <li>Everything in 30 Days</li>
+              <li>Everything in Base</li>
               <li>Second device included</li>
-              <li>Priority monitoring</li>
-              <li>Automatic updates</li>
+              <li>Longer coverage window</li>
+              <li>Priority email support</li>
             </ul>
 
-            <!-- REPLACE WITH STRIPE PAYMENT LINK -->
-            <a href="https://buy.stripe.com/REPLACE_60_DAY_LINK"
-               class="btn btn-primary" rel="noopener">Buy Now</a>
+            <!-- TODO (Stripe Checkout): replace "#" with Standard payment link -->
+            <a href="#" class="btn btn-primary btn-block is-disabled" aria-disabled="true" tabindex="-1">Get Started</a>
             <p class="plan-support">Priority email support</p>
           </article>
 
-          <!-- ---------- 90 DAYS ---------- -->
+          <!-- ---------- PREMIUM ---------- -->
           <article class="plan reveal" data-delay="160">
-            <span class="plan-tag">Best value</span>
-            <div class="plan-duration">90 Days</div>
-            <!-- REPLACE WITH REAL PRICING -->
-            <div class="plan-price">$00<span> / 90 days</span></div>
-            <p class="plan-meta">Up to 3 devices</p>
+            <span class="plan-tag">Premium</span>
+            <div class="plan-price">$999</div>
+            <p class="plan-meta">180 days &middot; 4 devices</p>
 
             <ul class="plan-features">
-              <li>Everything in 60 Days</li>
-              <li>Third device included</li>
-              <li>Priority monitoring</li>
-              <li>Best per-day rate</li>
+              <li>Everything in Standard</li>
+              <li>Up to four devices</li>
+              <li>Longest coverage window</li>
+              <li>Best value per day</li>
             </ul>
 
-            <!-- REPLACE WITH STRIPE PAYMENT LINK -->
-            <a href="https://buy.stripe.com/REPLACE_90_DAY_LINK"
-               class="btn btn-secondary" rel="noopener">Buy Now</a>
+            <!-- TODO (Stripe Checkout): replace "#" with Premium payment link -->
+            <a href="#" class="btn btn-secondary btn-block is-disabled" aria-disabled="true" tabindex="-1">Get Started</a>
             <p class="plan-support">Priority email support</p>
           </article>
 
         </div>
+
+        <p class="pricing-note reveal">Checkout opens soon. For early access, reach us on the <a href="contact.html">contact page</a>.</p>
       </div>
     </section>
 
@@ -138,20 +134,35 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a href="../index.html" class="nav-logo">Nova<span class="mark">Phase5</span></a>
-          <p>Automation software for fast, reliable monitoring on Windows and macOS.</p>
+          <p>Built for Amazon warehouse applicants. Stay ahead of new shifts on Windows and macOS.</p>
         </div>
-        <ul class="footer-links">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="proof.html">Proof</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="setup.html">Setup</a></li>
-          <li><a href="terms.html">Terms</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="proof.html">Proof</a></li>
+              <li><a href="pricing.html">Get Started</a></li>
+              <li><a href="setup.html">Setup</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="terms.html">Terms</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; <span data-year>2026</span> Nova Phase5. All rights reserved.</span>
+        <span>&copy; <span data-year>2026</span> Awarenova. All rights reserved.</span>
         <span>A Pratham Shah production</span>
       </div>
     </div>

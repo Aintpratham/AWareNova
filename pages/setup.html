@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Setup — Nova Phase5</title>
-  <meta name="description" content="How to install and set up Nova Phase5." />
+  <meta name="description" content="How to install and activate Nova Phase5 in four simple steps." />
+  <meta name="theme-color" content="#050505" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,9 +26,10 @@
       <ul class="nav-links" id="nav-links">
         <li><a href="../index.html">Home</a></li>
         <li><a href="proof.html">Proof</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="setup.html" class="active" aria-current="page">Setup</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <!-- TODO (Account Login): enable once customer accounts exist
+        <li><a href="login.html">Sign in</a></li>
+        -->
+        <li><a href="pricing.html" class="nav-cta">Get Started</a></li>
       </ul>
     </div>
   </nav>
@@ -39,7 +41,7 @@
       <div class="container">
         <span class="eyebrow">Setup</span>
         <h1>Getting started</h1>
-        <p>A short, guided install. The full walkthrough is on its way.</p>
+        <p>Four simple steps from download to your first run.</p>
       </div>
     </header>
 
@@ -48,31 +50,52 @@
 
         <!-- ====================================================
              SETUP STEPS
-
-             Step 1 is intentionally commented out for now. When the
-             install flow is ready, delete the "coming soon" card
-             below and uncomment / fill in real steps using the
-             .step-card pattern. Add more steps by copying the block.
+             Steps are a real sequence, so numbering is meaningful.
+             Buttons are placeholders until the backend is ready.
              ==================================================== -->
+        <ol class="steps">
 
-        <!--
-        <div class="steps">
-          <article class="step-card">
-            <span class="step-num">Step 1</span>
-            <div>
-              <h3>Download Nova Phase5</h3>
-              <p>Step 1 instructions go here.</p>
+          <!-- STEP 1 — DOWNLOAD -->
+          <li class="step-card reveal">
+            <span class="step-num">01</span>
+            <div class="step-body">
+              <h3>Download</h3>
+              <p>Get the latest version of Nova for your computer.</p>
+              <!-- TODO (License Downloads): link to the real download once hosted -->
+              <a href="#" class="btn btn-secondary is-disabled" aria-disabled="true" tabindex="-1">Download Nova</a>
             </div>
-          </article>
-        </div>
-        -->
+          </li>
 
-        <!-- Temporary placeholder shown until steps are ready -->
-        <div class="coming-soon reveal">
-          <span class="eyebrow">Setup Guide</span>
-          <h2>Coming soon</h2>
-          <p>The step-by-step setup walkthrough is being finalized and will appear here shortly.</p>
-        </div>
+          <!-- STEP 2 — INSTALL -->
+          <li class="step-card reveal" data-delay="80">
+            <span class="step-num">02</span>
+            <div class="step-body">
+              <h3>Install</h3>
+              <p>Open the file you downloaded and follow the prompts to finish installing.</p>
+            </div>
+          </li>
+
+          <!-- STEP 3 — ACTIVATE LICENSE -->
+          <li class="step-card reveal" data-delay="160">
+            <span class="step-num">03</span>
+            <div class="step-body">
+              <h3>Activate license</h3>
+              <p>Enter the license key from your order to unlock Nova.</p>
+              <!-- TODO (Customer Portal): link to license lookup / resend -->
+            </div>
+          </li>
+
+          <!-- STEP 4 — START USING NOVA -->
+          <li class="step-card reveal" data-delay="240">
+            <span class="step-num">04</span>
+            <div class="step-body">
+              <h3>Start using Nova</h3>
+              <p>You're set. Nova begins watching for new warehouse opportunities right away.</p>
+              <a href="pricing.html" class="btn btn-primary">Get Started</a>
+            </div>
+          </li>
+
+        </ol>
 
       </div>
     </section>
@@ -85,20 +108,35 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a href="../index.html" class="nav-logo">Nova<span class="mark">Phase5</span></a>
-          <p>Automation software for fast, reliable monitoring on Windows and macOS.</p>
+          <p>Built for Amazon warehouse applicants. Stay ahead of new shifts on Windows and macOS.</p>
         </div>
-        <ul class="footer-links">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="proof.html">Proof</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="setup.html">Setup</a></li>
-          <li><a href="terms.html">Terms</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="proof.html">Proof</a></li>
+              <li><a href="pricing.html">Get Started</a></li>
+              <li><a href="setup.html">Setup</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="terms.html">Terms</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; <span data-year>2026</span> Nova Phase5. All rights reserved.</span>
+        <span>&copy; <span data-year>2026</span> Awarenova. All rights reserved.</span>
         <span>A Pratham Shah production</span>
       </div>
     </div>

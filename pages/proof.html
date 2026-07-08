@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Proof — Nova Phase5</title>
-  <meta name="description" content="See Nova Phase5 in action: screenshots, success videos, customer results, and performance examples." />
+  <meta name="description" content="See Nova Phase5 in action: screenshots and recordings from real use. Sensitive details are kept private." />
+  <meta name="theme-color" content="#050505" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,9 +26,10 @@
       <ul class="nav-links" id="nav-links">
         <li><a href="../index.html">Home</a></li>
         <li><a href="proof.html" class="active" aria-current="page">Proof</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="setup.html">Setup</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <!-- TODO (Account Login): enable once customer accounts exist
+        <li><a href="login.html">Sign in</a></li>
+        -->
+        <li><a href="pricing.html" class="nav-cta">Get Started</a></li>
       </ul>
     </div>
   </nav>
@@ -39,63 +41,74 @@
       <div class="container">
         <span class="eyebrow">Proof</span>
         <h1>See it working</h1>
-        <p>Real screenshots, recordings, and results from Nova Phase5 in the field. New proof is added as it comes in.</p>
+        <p>Screenshots and recordings from real use. New proof is added as it comes in, and sensitive customer details are always kept private.</p>
       </div>
     </header>
 
     <!-- ====================================================
-         PROOF GALLERY
-         Replace each .placeholder with a real <img>:
+         SCREENSHOTS
+         Replace each .media-card body with a real (pre-blurred
+         or cropped) image so nothing sensitive is exposed:
          <img src="../assets/images/your-screenshot.png" alt="..." />
-         Add or remove cards as needed.
+         TODO (Proof Media Management): wire real media in here.
          ==================================================== -->
     <section class="proof-block">
       <div class="container">
-        <h2>Proof Gallery</h2>
-        <p class="block-note">Screenshots of Nova running live.</p>
+        <div class="block-head reveal">
+          <h2>Screenshots</h2>
+          <p class="block-note">Nova running live.</p>
+        </div>
 
         <div class="proof-grid grid-3">
           <!-- SCREENSHOT SLOT 1 -->
-          <figure class="placeholder reveal">
-            <span class="ph-label">Add Screenshot Here</span>
-            <span class="ph-hint">Drop an image into assets/images and swap this card.</span>
+          <figure class="media-card reveal">
+            <div class="media-blur"></div>
+            <figcaption class="media-tag">Screenshot</figcaption>
           </figure>
           <!-- SCREENSHOT SLOT 2 -->
-          <figure class="placeholder reveal" data-delay="80">
-            <span class="ph-label">Add Screenshot Here</span>
-            <span class="ph-hint">Drop an image into assets/images and swap this card.</span>
+          <figure class="media-card reveal" data-delay="80">
+            <div class="media-blur"></div>
+            <figcaption class="media-tag">Screenshot</figcaption>
           </figure>
           <!-- SCREENSHOT SLOT 3 -->
-          <figure class="placeholder reveal" data-delay="160">
-            <span class="ph-label">Add Screenshot Here</span>
-            <span class="ph-hint">Drop an image into assets/images and swap this card.</span>
+          <figure class="media-card reveal" data-delay="160">
+            <div class="media-blur"></div>
+            <figcaption class="media-tag">Screenshot</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
     <!-- ====================================================
-         SUCCESS VIDEOS
-         Replace each .placeholder.video with a real video, e.g.:
+         VIDEOS
+         Replace each .media-card.video body with a real video:
          <video controls poster="../assets/images/thumb.jpg">
            <source src="../assets/videos/clip.mp4" type="video/mp4" />
          </video>
          ==================================================== -->
     <section class="proof-block">
       <div class="container">
-        <h2>Success Videos</h2>
-        <p class="block-note">Short recordings of complete, successful runs.</p>
+        <div class="block-head reveal">
+          <h2>Videos</h2>
+          <p class="block-note">Short recordings of complete runs.</p>
+        </div>
 
         <div class="proof-grid grid-2">
           <!-- VIDEO SLOT 1 -->
-          <figure class="placeholder video reveal">
-            <span class="ph-label">Add Video Here</span>
-            <span class="ph-hint">Place an .mp4 in assets/videos and embed it here.</span>
+          <figure class="media-card video reveal">
+            <div class="media-blur"></div>
+            <span class="play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+            </span>
+            <figcaption class="media-tag">Recording</figcaption>
           </figure>
           <!-- VIDEO SLOT 2 -->
-          <figure class="placeholder video reveal" data-delay="80">
-            <span class="ph-label">Add Video Here</span>
-            <span class="ph-hint">Place an .mp4 in assets/videos and embed it here.</span>
+          <figure class="media-card video reveal" data-delay="80">
+            <div class="media-blur"></div>
+            <span class="play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+            </span>
+            <figcaption class="media-tag">Recording</figcaption>
           </figure>
         </div>
       </div>
@@ -103,55 +116,43 @@
 
     <!-- ====================================================
          CUSTOMER RESULTS
-         Replace each .placeholder with a testimonial, result
-         screenshot, or stat card.
+         Replace each .media-card with a testimonial, result
+         screenshot, or before/after. Keep names/details private.
          ==================================================== -->
     <section class="proof-block">
       <div class="container">
-        <h2>Customer Results</h2>
-        <p class="block-note">Outcomes and feedback from people using Nova.</p>
+        <div class="block-head reveal">
+          <h2>Customer results</h2>
+          <p class="block-note">Outcomes and feedback from people using Nova.</p>
+        </div>
 
         <div class="proof-grid grid-3">
           <!-- RESULT SLOT 1 -->
-          <figure class="placeholder reveal">
-            <span class="ph-label">Add Success Proof Here</span>
-            <span class="ph-hint">Testimonial, result screenshot, or before/after.</span>
+          <figure class="media-card reveal">
+            <div class="media-blur"></div>
+            <figcaption class="media-tag">Result</figcaption>
           </figure>
           <!-- RESULT SLOT 2 -->
-          <figure class="placeholder reveal" data-delay="80">
-            <span class="ph-label">Add Success Proof Here</span>
-            <span class="ph-hint">Testimonial, result screenshot, or before/after.</span>
+          <figure class="media-card reveal" data-delay="80">
+            <div class="media-blur"></div>
+            <figcaption class="media-tag">Result</figcaption>
           </figure>
           <!-- RESULT SLOT 3 -->
-          <figure class="placeholder reveal" data-delay="160">
-            <span class="ph-label">Add Success Proof Here</span>
-            <span class="ph-hint">Testimonial, result screenshot, or before/after.</span>
+          <figure class="media-card reveal" data-delay="160">
+            <div class="media-blur"></div>
+            <figcaption class="media-tag">Result</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <!-- ====================================================
-         PERFORMANCE EXAMPLES
-         Replace each .placeholder with charts, timing data,
-         or annotated screenshots demonstrating speed.
-         ==================================================== -->
-    <section class="proof-block">
+    <!-- ============ CTA ============ -->
+    <section class="section proof-cta">
       <div class="container">
-        <h2>Performance Examples</h2>
-        <p class="block-note">Speed and reliability, shown with real numbers.</p>
-
-        <div class="proof-grid grid-2">
-          <!-- PERFORMANCE SLOT 1 -->
-          <figure class="placeholder reveal">
-            <span class="ph-label">Add Performance Example Here</span>
-            <span class="ph-hint">Chart, timing log, or annotated capture.</span>
-          </figure>
-          <!-- PERFORMANCE SLOT 2 -->
-          <figure class="placeholder reveal" data-delay="80">
-            <span class="ph-label">Add Performance Example Here</span>
-            <span class="ph-hint">Chart, timing log, or annotated capture.</span>
-          </figure>
+        <div class="proof-cta-card reveal">
+          <h2>Ready to stay ahead?</h2>
+          <p>Choose a plan and start catching shifts as they open.</p>
+          <a href="pricing.html" class="btn btn-primary">Get Started</a>
         </div>
       </div>
     </section>
@@ -164,20 +165,35 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a href="../index.html" class="nav-logo">Nova<span class="mark">Phase5</span></a>
-          <p>Automation software for fast, reliable monitoring on Windows and macOS.</p>
+          <p>Built for Amazon warehouse applicants. Stay ahead of new shifts on Windows and macOS.</p>
         </div>
-        <ul class="footer-links">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="proof.html">Proof</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="setup.html">Setup</a></li>
-          <li><a href="terms.html">Terms</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="proof.html">Proof</a></li>
+              <li><a href="pricing.html">Get Started</a></li>
+              <li><a href="setup.html">Setup</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="terms.html">Terms</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; <span data-year>2026</span> Nova Phase5. All rights reserved.</span>
+        <span>&copy; <span data-year>2026</span> Awarenova. All rights reserved.</span>
         <span>A Pratham Shah production</span>
       </div>
     </div>

@@ -302,6 +302,19 @@ main {
 
 .nav-logo .mark { color: var(--accent); }
 
+/* Brand mark in the top navigation. Only the nav logo carries the image;
+   the footer wordmark stays text-only. The image is sized ~32px and kept
+   from distorting (width:auto). The existing 8px flex gap plus this small
+   margin gives ~11px between the mark and the wordmark, while the Nova/Phase5
+   letter spacing is left untouched. Transparency is preserved (PNG alpha). */
+.site-nav .nav-logo img {
+  height: 32px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+  margin-right: 3px;
+}
+
 .nav-links {
   display: flex;
   align-items: center;

@@ -103,7 +103,7 @@
     try {
 
       const response = await fetch(
-        `${RAILWAY_URL}/create-checkout-session`,
+  new URL("/create-checkout-session", RAILWAY_URL).toString(),
         {
           method: "POST",
           headers: {

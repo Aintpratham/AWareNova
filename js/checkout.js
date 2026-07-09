@@ -8,7 +8,7 @@
   // ==========================
   // CHANGE THIS IF NEEDED
   // ==========================
-  const RAILWAY_URL = "https://web-production-b87f.up.railway.app/";
+  const RAILWAY_URL = "https://web-production-b87f.up.railway.app";
 
   const PLANS = {
     base: {

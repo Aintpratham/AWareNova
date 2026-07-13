@@ -105,7 +105,7 @@ Everything below is marked with `TODO` or `REPLACE` comments in the code.
 
 `pages/pricing.html` -> `pages/checkout.html?plan=base|standard|premium` -> (Stripe, once wired) -> `pages/success.html?session_id=...`, or `pages/cancel.html` if abandoned. `success.html` and `cancel.html` are intentionally kept out of the nav (they're `noindex` and only reached via the flow). The only remaining work is connecting `js/checkout.js` and `js/success.js` to the Railway backend at the two `TODO:` markers.
 
-Support address used site-wide: **support@awarenova.ca**
+Support address used site-wide: **support@awarenova.net**
 
 ### Editing the nav or footer
 

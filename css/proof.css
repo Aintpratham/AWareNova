@@ -198,6 +198,15 @@ body.modal-open { overflow: hidden; }
   padding: 20px;
 }
 
+/* The display:flex above outranks the browser's default
+   [hidden] { display:none }, which left both overlays visible
+   on page load. This keeps them hidden until proof.js removes
+   the hidden attribute. */
+.review-modal[hidden],
+.lightbox[hidden] {
+  display: none !important;
+}
+
 .modal-backdrop {
   position: absolute;
   inset: 0;

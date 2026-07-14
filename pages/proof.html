@@ -1,483 +1,272 @@
-/* ============================================================
-   REVIEWS & RESULTS PAGE STYLES (pages/proof.html)
-   Customer review carousel, review modal, verified results
-   grid with lightbox, disclaimer, and CTA. Mobile-first.
-   Review content lives in js/proof.js — edit it there.
-   ============================================================ */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Reviews &amp; Results — Nova Phase5</title>
+  <meta name="description" content="Reviews and verified results from real Nova Phase5 customers. Sensitive details are always kept private." />
+  <meta name="theme-color" content="#050505" />
 
-.proof-hero {
-  text-align: center;
-  padding: clamp(56px, 11vw, 110px) 0 clamp(20px, 4vw, 32px);
-}
+  <!-- Favicon / touch icon -->
+  <link rel="icon" type="image/png" href="../assets/icon.png" />
+  <link rel="apple-touch-icon" href="../assets/icon.png" />
 
-.proof-hero .eyebrow { margin-bottom: 22px; }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
 
-.proof-hero p {
-  max-width: 620px;
-  margin: 18px auto 0;
-  font-size: 1.05rem;
-}
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/proof.css" />
+</head>
+<body>
 
-/* Shared block rhythm (reviews / results) */
-.proof-block {
-  padding: clamp(44px, 8vw, 80px) 0;
-  border-top: 1px solid var(--border-soft);
-}
+  <!-- ============ NAVIGATION ============ -->
+  <nav class="site-nav">
+    <div class="container">
+      <a href="../index.html" class="nav-logo"><img src="../assets/icon.png" alt="" aria-hidden="true" />Nova<span class="mark">Phase5</span></a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="proof.html" class="active" aria-current="page">Reviews &amp; Results</a></li>
+        <!-- TODO (Account Login): enable once customer accounts exist
+        <li><a href="login.html">Sign in</a></li>
+        -->
+        <li><a href="pricing.html" class="nav-cta">Get Started</a></li>
+      </ul>
+    </div>
+  </nav>
 
-.block-head { margin-bottom: clamp(28px, 5vw, 40px); }
+  <main>
 
-.block-head h2 { margin-bottom: 8px; }
+    <!-- ============ REVIEWS HERO ============ -->
+    <header class="proof-hero">
+      <div class="container">
+        <span class="eyebrow">Customer Reviews</span>
+        <h1>Real customers. Real results.</h1>
+        <p>These are experiences shared by verified Nova customers in different cities. Every situation is different — Nova handles the monitoring, and outcomes always depend on real availability.</p>
+      </div>
+    </header>
 
-.block-note {
-  color: var(--text-muted);
-  font-size: 0.98rem;
-}
+    <!-- ====================================================
+         CUSTOMER REVIEWS — auto-moving carousel
+         The review content itself lives in ONE place:
+         the REVIEWS array at the top of ../js/proof.js.
+         Edit names, titles, and bodies there — never here.
+         Cards move slowly, pause on hover/touch, stay
+         manually swipeable, and stop for reduced motion.
+         ==================================================== -->
+    <section class="proof-block reviews-block">
+      <div class="container">
+        <div class="block-head reveal">
+          <h2>What customers say</h2>
+          <p class="block-note">Tap a review to read the full experience.</p>
+        </div>
+      </div>
 
-/* ============================================================
-   1. REVIEW CAROUSEL
-   A horizontally scrolling track. proof.js drifts it slowly,
-   pauses on hover/touch/focus, and it stays natively swipeable.
-   With reduced motion it is a plain swipeable row.
-   ============================================================ */
-.review-marquee {
-  position: relative;
-  overflow: hidden;
-}
+      <div class="review-marquee reveal" id="review-marquee">
+        <div class="review-track" id="review-track" tabindex="0" role="region" aria-label="Customer reviews, scrollable">
+          <!-- Review cards are rendered here by proof.js from the REVIEWS array -->
+        </div>
+      </div>
 
-/* Soft fade at both edges so cards drift in and out */
-.review-marquee::before,
-.review-marquee::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: clamp(24px, 6vw, 90px);
-  z-index: 2;
-  pointer-events: none;
-}
-.review-marquee::before {
-  left: 0;
-  background: linear-gradient(90deg, var(--bg-0), transparent);
-}
-.review-marquee::after {
-  right: 0;
-  background: linear-gradient(-90deg, var(--bg-0), transparent);
-}
+      <noscript>
+        <div class="container">
+          <p class="block-note">Enable JavaScript to view customer reviews.</p>
+        </div>
+      </noscript>
+    </section>
 
-.review-track {
-  display: flex;
-  gap: 14px;
-  overflow-x: auto;
-  padding: 6px 20px 18px;
-  scrollbar-width: none;            /* Firefox */
-  -webkit-overflow-scrolling: touch;
-}
+    <!-- Review modal — filled in and controlled by proof.js.
+         Opens on card tap/click, closes on Escape, the close
+         button, or a backdrop click. -->
+    <div class="review-modal" id="review-modal" role="dialog" aria-modal="true" aria-labelledby="review-modal-title" hidden>
+      <div class="modal-backdrop" data-close-modal></div>
+      <div class="modal-panel">
+        <button class="modal-close" type="button" aria-label="Close review" data-close-modal>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+        </button>
+        <div class="modal-stars" id="review-modal-stars" aria-hidden="true"></div>
+        <h3 id="review-modal-title"></h3>
+        <p class="modal-body" id="review-modal-body"></p>
+        <div class="modal-meta">
+          <span class="modal-name" id="review-modal-name"></span>
+          <span class="verified-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
+            Verified Customer
+          </span>
+        </div>
+      </div>
+    </div>
 
-.review-track::-webkit-scrollbar { display: none; }
+    <!-- ====================================================
+         VERIFIED RESULTS — real proof images go here
+         HOW TO ADD YOUR IMAGES (4-8 total):
+         1. Place your already-watermarked files (with the large
+            diagonal "AWareNova.net" watermark baked in) into:
+              assets/proof/
+            Recommended filenames are printed on each card:
+              result-01.jpg ... result-06.jpg
+         2. For each card below, delete the .result-placeholder
+            div and uncomment the <img> line, updating src/alt.
+         3. The card automatically becomes tap-to-enlarge in the
+            lightbox once it contains an <img>.
+         Do NOT put unwatermarked or unredacted files here.
+         ==================================================== -->
+    <section class="proof-block results-block">
+      <div class="container">
+        <div class="block-head reveal">
+          <h2>Verified results</h2>
+          <p class="block-note">Screenshots from real customer outcomes. Tap any image to enlarge.</p>
+          <p class="privacy-note">Names, job IDs, and sensitive details may be obscured to protect our customers.</p>
+        </div>
 
-.review-track:focus-visible {
-  outline: 2px solid var(--accent-light);
-  outline-offset: 3px;
-}
+        <div class="results-grid">
+          <!-- RESULT SLOT 1 — replace placeholder with:
+               <img src="../assets/proof/result-01.jpg" alt="Verified customer result 1" loading="lazy" /> -->
+          <figure class="result-card reveal">
+            <div class="result-placeholder">
+              <span class="ph-label">Result image</span>
+              <span class="ph-file">assets/proof/result-01.jpg</span>
+            </div>
+            <figcaption class="result-caption">Verified result — 01</figcaption>
+          </figure>
 
-/* ---------- Compact review card ---------- */
-.review-card {
-  flex: 0 0 auto;
-  width: min(300px, 76vw);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  text-align: left;
-  padding: 20px 20px 18px;
-  background: var(--bg-2);
-  border: 1px solid var(--border-soft);
-  border-radius: var(--radius);
-  color: var(--text-1);
-  font-family: var(--font-body);
-  cursor: pointer;
-  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
-}
+          <!-- RESULT SLOT 2 — replace placeholder with:
+               <img src="../assets/proof/result-02.jpg" alt="Verified customer result 2" loading="lazy" /> -->
+          <figure class="result-card reveal" data-delay="60">
+            <div class="result-placeholder">
+              <span class="ph-label">Result image</span>
+              <span class="ph-file">assets/proof/result-02.jpg</span>
+            </div>
+            <figcaption class="result-caption">Verified result — 02</figcaption>
+          </figure>
 
-.review-card:hover {
-  border-color: var(--border-copper);
-  transform: translateY(-3px);
-}
+          <!-- RESULT SLOT 3 — replace placeholder with:
+               <img src="../assets/proof/result-03.jpg" alt="Verified customer result 3" loading="lazy" /> -->
+          <figure class="result-card reveal" data-delay="120">
+            <div class="result-placeholder">
+              <span class="ph-label">Result image</span>
+              <span class="ph-file">assets/proof/result-03.jpg</span>
+            </div>
+            <figcaption class="result-caption">Verified result — 03</figcaption>
+          </figure>
 
-.review-card:focus-visible {
-  outline: 2px solid var(--accent-light);
-  outline-offset: 3px;
-}
+          <!-- RESULT SLOT 4 — replace placeholder with:
+               <img src="../assets/proof/result-04.jpg" alt="Verified customer result 4" loading="lazy" /> -->
+          <figure class="result-card reveal" data-delay="180">
+            <div class="result-placeholder">
+              <span class="ph-label">Result image</span>
+              <span class="ph-file">assets/proof/result-04.jpg</span>
+            </div>
+            <figcaption class="result-caption">Verified result — 04</figcaption>
+          </figure>
 
-.review-stars {
-  display: inline-flex;
-  gap: 3px;
-  color: var(--accent);
-}
+          <!-- RESULT SLOT 5 — optional. Delete this figure if unused,
+               or replace placeholder with:
+               <img src="../assets/proof/result-05.jpg" alt="Verified customer result 5" loading="lazy" /> -->
+          <figure class="result-card reveal" data-delay="240">
+            <div class="result-placeholder">
+              <span class="ph-label">Result image</span>
+              <span class="ph-file">assets/proof/result-05.jpg</span>
+            </div>
+            <figcaption class="result-caption">Verified result — 05</figcaption>
+          </figure>
 
-.review-stars svg,
-.modal-stars svg {
-  width: 15px;
-  height: 15px;
-}
+          <!-- RESULT SLOT 6 — optional. Delete this figure if unused,
+               or replace placeholder with:
+               <img src="../assets/proof/result-06.jpg" alt="Verified customer result 6" loading="lazy" /> -->
+          <figure class="result-card reveal" data-delay="300">
+            <div class="result-placeholder">
+              <span class="ph-label">Result image</span>
+              <span class="ph-file">assets/proof/result-06.jpg</span>
+            </div>
+            <figcaption class="result-caption">Verified result — 06</figcaption>
+          </figure>
 
-.review-title {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.02rem;
-  color: var(--text-0);
-  letter-spacing: -0.01em;
-  line-height: 1.25;
-}
+          <!-- To show 7 or 8 results, copy a figure block above and
+               use result-07.jpg / result-08.jpg. -->
+        </div>
+      </div>
+    </section>
 
-/* Two-line preview, clamped so cards stay compact */
-.review-preview {
-  font-size: 0.9rem;
-  line-height: 1.55;
-  color: var(--text-2);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
+    <!-- Lightbox — filled in and controlled by proof.js.
+         Only cards that contain a real <img> open it. -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged result image" hidden>
+      <div class="modal-backdrop" data-close-lightbox></div>
+      <figure class="lightbox-panel">
+        <button class="modal-close" type="button" aria-label="Close image" data-close-lightbox>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+        </button>
+        <img id="lightbox-img" src="" alt="" />
+        <figcaption id="lightbox-caption"></figcaption>
+      </figure>
+    </div>
 
-.review-foot {
-  margin-top: auto;
-  padding-top: 10px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  border-top: 1px solid var(--border-soft);
-}
+    <!-- ============ DISCLAIMER ============ -->
+    <section class="proof-disclaimer">
+      <div class="container">
+        <p class="disclaimer-text reveal">These reviews describe individual customer experiences. Availability varies by location and time, and Nova does not guarantee a specific shift or employment outcome.</p>
+      </div>
+    </section>
 
-.review-name {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--text-1);
-  letter-spacing: 0.02em;
-}
+    <!-- ============ CTA ============ -->
+    <section class="section proof-cta">
+      <div class="container">
+        <div class="proof-cta-card reveal">
+          <h2>Ready to let Nova start watching?</h2>
+          <p>Choose a plan and let Nova handle the monitoring for you.</p>
+          <a href="pricing.html" class="btn btn-primary">Get Started</a>
+        </div>
+      </div>
+    </section>
 
-/* Subtle Verified Customer label (cards + modal) */
-.verified-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  background: rgba(197, 139, 92, 0.08);
-  border: 1px solid var(--border-copper);
-  padding: 4px 9px;
-  border-radius: var(--radius-pill);
-  white-space: nowrap;
-}
+  </main>
 
-.verified-pill svg {
-  width: 11px;
-  height: 11px;
-  flex-shrink: 0;
-}
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="../index.html" class="nav-logo">Nova<span class="mark">Phase5</span></a>
+          <p>Built for Amazon warehouse applicants. Stay ahead of new shifts on Windows and macOS.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="proof.html">Reviews &amp; Results</a></li>
+              <li><a href="pricing.html">Get Started</a></li>
+              <li><a href="setup.html">Setup</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="terms.html">Terms</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span data-year>2026</span> Awarenova. All rights reserved.</span>
+        <span>A Pratham Shah production</span>
+      </div>
+    </div>
+  </footer>
 
-/* ============================================================
-   2. OVERLAYS — shared modal / lightbox foundation
-   ============================================================ */
-body.modal-open { overflow: hidden; }
-
-.review-modal,
-.lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-/* The display:flex above outranks the browser's default
-   [hidden] { display:none }, which left both overlays visible
-   on page load. This keeps them hidden until proof.js removes
-   the hidden attribute. */
-.review-modal[hidden],
-.lightbox[hidden] {
-  display: none !important;
-}
-
-.modal-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(5, 5, 5, 0.78);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-}
-
-.modal-close {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  z-index: 2;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg-3);
-  border: 1px solid var(--border-strong);
-  border-radius: 50%;
-  color: var(--text-1);
-  cursor: pointer;
-  transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
-}
-
-.modal-close:hover {
-  border-color: var(--accent);
-  color: var(--accent-light);
-}
-
-.modal-close:focus-visible {
-  outline: 2px solid var(--accent-light);
-  outline-offset: 3px;
-}
-
-.modal-close svg { width: 16px; height: 16px; }
-
-/* ---------- Review modal panel ---------- */
-.modal-panel {
-  position: relative;
-  z-index: 1;
-  width: min(520px, 100%);
-  max-height: min(80vh, 80dvh);
-  overflow-y: auto;
-  padding: clamp(26px, 6vw, 40px);
-  background: var(--bg-2);
-  border: 1px solid var(--border-copper);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-md);
-  animation: modal-in 0.3s var(--ease);
-}
-
-@keyframes modal-in {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: none; }
-}
-
-.modal-stars {
-  display: inline-flex;
-  gap: 3px;
-  color: var(--accent);
-  margin-bottom: 14px;
-}
-
-.modal-panel h3 {
-  margin-bottom: 12px;
-  padding-right: 36px;
-}
-
-.modal-body {
-  font-size: 0.98rem;
-  line-height: 1.7;
-  color: var(--text-2);
-}
-
-.modal-meta {
-  margin-top: 22px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border-soft);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.modal-name {
-  font-family: var(--font-mono);
-  font-size: 0.88rem;
-  color: var(--text-1);
-}
-
-/* ============================================================
-   3. VERIFIED RESULTS GRID
-   Placeholder cards until real watermarked images are added
-   (see comments in proof.html). Cards with an <img> become
-   tap-to-enlarge automatically via proof.js.
-   ============================================================ */
-.privacy-note {
-  margin-top: 10px;
-  font-family: var(--font-mono);
-  font-size: 0.76rem;
-  letter-spacing: 0.04em;
-  color: var(--text-muted);
-}
-
-.results-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
-.result-card {
-  position: relative;
-  background: var(--bg-2);
-  border: 1px solid var(--border-soft);
-  border-radius: var(--radius);
-  overflow: hidden;
-  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
-}
-
-/* Only cards holding a real image behave as buttons */
-.result-card.has-image { cursor: zoom-in; }
-
-.result-card.has-image:hover {
-  border-color: var(--border-copper);
-  transform: translateY(-4px);
-}
-
-.result-card.has-image:focus-visible {
-  outline: 2px solid var(--accent-light);
-  outline-offset: 3px;
-}
-
-/* Real proof images: fill the card, watermark already baked in */
-.result-card img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  display: block;
-}
-
-/* Placeholder shown until an image is added */
-.result-placeholder {
-  aspect-ratio: 16 / 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin: 10px;
-  border: 1px dashed var(--border-strong);
-  border-radius: var(--radius-sm);
-  background:
-    radial-gradient(circle at 30% 30%, rgba(197, 139, 92, 0.07), transparent 55%),
-    var(--bg-1);
-}
-
-.ph-label {
-  font-family: var(--font-display);
-  font-size: 0.92rem;
-  font-weight: 500;
-  color: var(--text-muted);
-}
-
-.ph-file {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.04em;
-  color: var(--text-muted);
-  opacity: 0.75;
-}
-
-.result-caption {
-  padding: 12px 16px;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  border-top: 1px solid var(--border-soft);
-}
-
-/* ---------- Lightbox panel ---------- */
-.lightbox-panel {
-  position: relative;
-  z-index: 1;
-  max-width: min(960px, 100%);
-  max-height: min(86vh, 86dvh);
-  display: flex;
-  flex-direction: column;
-  background: var(--bg-2);
-  border: 1px solid var(--border-copper);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  animation: modal-in 0.3s var(--ease);
-}
-
-.lightbox-panel img {
-  width: 100%;
-  height: auto;
-  max-height: calc(86vh - 60px);
-  max-height: calc(86dvh - 60px);
-  object-fit: contain;
-  background: var(--bg-0);
-}
-
-.lightbox-panel figcaption {
-  padding: 12px 18px;
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-/* ============================================================
-   4. DISCLAIMER + CTA
-   ============================================================ */
-.proof-disclaimer {
-  padding: clamp(28px, 5vw, 44px) 0 0;
-  border-top: 1px solid var(--border-soft);
-}
-
-.disclaimer-text {
-  max-width: 680px;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 0.86rem;
-  line-height: 1.7;
-  color: var(--text-muted);
-}
-
-.proof-cta-card {
-  text-align: center;
-  max-width: 620px;
-  margin: 0 auto;
-  padding: clamp(32px, 7vw, 52px);
-  background: linear-gradient(180deg, rgba(197, 139, 92, 0.06), var(--bg-2) 45%);
-  border: 1px solid var(--border-copper);
-  border-radius: var(--radius);
-}
-
-.proof-cta-card h2 { margin-bottom: 12px; }
-.proof-cta-card p { margin-bottom: 28px; color: var(--text-2); }
-
-/* ============================================================
-   5. RESPONSIVE
-   ============================================================ */
-@media (min-width: 640px) {
-  .results-grid { grid-template-columns: repeat(2, 1fr); }
-  .review-card { width: 320px; }
-}
-
-@media (min-width: 960px) {
-  .results-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-  .review-track { padding-left: 32px; padding-right: 32px; }
-}
-
-/* ============================================================
-   6. REDUCED MOTION
-   global.css already zeroes animations/transitions site-wide.
-   proof.js additionally skips auto-scroll entirely, so the
-   carousel becomes a plain swipeable row.
-   ============================================================ */
-@media (prefers-reduced-motion: reduce) {
-  .modal-panel,
-  .lightbox-panel { animation: none; }
-}
+  <script src="../js/main.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/proof.js"></script>
+</body>
+</html>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Proof — Nova Phase5</title>
-  <meta name="description" content="See Nova Phase5 in action: screenshots and recordings from real use. Sensitive details are kept private." />
+  <title>Reviews &amp; Results — Nova Phase5</title>
+  <meta name="description" content="Reviews and verified results from real Nova Phase5 customers. Sensitive details are always kept private." />
   <meta name="theme-color" content="#050505" />
 
   <!-- Favicon / touch icon -->
@@ -29,7 +29,7 @@
       </button>
       <ul class="nav-links" id="nav-links">
         <li><a href="../index.html">Home</a></li>
-        <li><a href="proof.html" class="active" aria-current="page">Proof</a></li>
+        <li><a href="proof.html" class="active" aria-current="page">Reviews &amp; Results</a></li>
         <!-- TODO (Account Login): enable once customer accounts exist
         <li><a href="login.html">Sign in</a></li>
         -->
@@ -40,113 +40,174 @@
 
   <main>
 
-    <!-- ============ PROOF HERO ============ -->
+    <!-- ============ REVIEWS HERO ============ -->
     <header class="proof-hero">
       <div class="container">
-        <span class="eyebrow">Proof</span>
-        <h1>See it working</h1>
-        <p>Screenshots and recordings from real use. New proof is added as it comes in, and sensitive customer details are always kept private.</p>
+        <span class="eyebrow">Customer Reviews</span>
+        <h1>Real customers. Real results.</h1>
+        <p>These are experiences shared by verified Nova customers in different cities. Every situation is different — Nova handles the monitoring, and outcomes always depend on real availability.</p>
       </div>
     </header>
 
     <!-- ====================================================
-         SCREENSHOTS
-         Replace each .media-card body with a real (pre-blurred
-         or cropped) image so nothing sensitive is exposed:
-         <img src="../assets/images/your-screenshot.png" alt="..." />
-         TODO (Proof Media Management): wire real media in here.
+         CUSTOMER REVIEWS — auto-moving carousel
+         The review content itself lives in ONE place:
+         the REVIEWS array at the top of ../js/proof.js.
+         Edit names, titles, and bodies there — never here.
+         Cards move slowly, pause on hover/touch, stay
+         manually swipeable, and stop for reduced motion.
          ==================================================== -->
-    <section class="proof-block">
+    <section class="proof-block reviews-block">
       <div class="container">
         <div class="block-head reveal">
-          <h2>Screenshots</h2>
-          <p class="block-note">Nova running live.</p>
+          <h2>What customers say</h2>
+          <p class="block-note">Tap a review to read the full experience.</p>
+        </div>
+      </div>
+
+      <div class="review-marquee reveal" id="review-marquee">
+        <div class="review-track" id="review-track" tabindex="0" role="region" aria-label="Customer reviews, scrollable">
+          <!-- Review cards are rendered here by proof.js from the REVIEWS array -->
+        </div>
+      </div>
+
+      <noscript>
+        <div class="container">
+          <p class="block-note">Enable JavaScript to view customer reviews.</p>
+        </div>
+      </noscript>
+    </section>
+
+    <!-- Review modal — filled in and controlled by proof.js.
+         Opens on card tap/click, closes on Escape, the close
+         button, or a backdrop click. -->
+    <div class="review-modal" id="review-modal" role="dialog" aria-modal="true" aria-labelledby="review-modal-title" hidden>
+      <div class="modal-backdrop" data-close-modal></div>
+      <div class="modal-panel">
+        <button class="modal-close" type="button" aria-label="Close review" data-close-modal>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+        </button>
+        <div class="modal-stars" id="review-modal-stars" aria-hidden="true"></div>
+        <h3 id="review-modal-title"></h3>
+        <p class="modal-body" id="review-modal-body"></p>
+        <div class="modal-meta">
+          <span class="modal-name" id="review-modal-name"></span>
+          <span class="verified-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
+            Verified Customer
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================================================
+         VERIFIED RESULTS — real proof images go here
+         HOW TO ADD YOUR IMAGES (4-8 total):
+         1. Place your already-watermarked files (with the large
+            diagonal "AWareNova.net" watermark baked in) into:
+              assets/proof/
+            Recommended filenames are printed on each card:
+              result-01.jpg ... result-06.jpg
+         2. For each card below, delete the .result-placeholder
+            div and uncomment the <img> line, updating src/alt.
+         3. The card automatically becomes tap-to-enlarge in the
+            lightbox once it contains an <img>.
+         Do NOT put unwatermarked or unredacted files here.
+         ==================================================== -->
+    <section class="proof-block results-block">
+      <div class="container">
+        <div class="block-head reveal">
+          <h2>Verified results</h2>
+          <p class="block-note">Screenshots from real customer outcomes. Tap any image to enlarge.</p>
+          <p class="privacy-note">Names, job IDs, and sensitive details may be obscured to protect our customers.</p>
         </div>
 
-        <div class="proof-grid grid-3">
-          <!-- SCREENSHOT SLOT 1 -->
-          <figure class="media-card reveal">
-            <div class="media-blur"></div>
-            <figcaption class="media-tag">Screenshot</figcaption>
+        <div class="results-grid">
+          <!-- RESULT SLOT 1 — replace placeholder with:
+               <img src="../assets/proof/result-01.jpg" alt="Verified customer result 1" loading="lazy" /> -->
+          <figure class="result-card reveal">
+            <div class="result-placeholder">
+              <span class="ph-label">Result image</span>
+              <span class="ph-file">assets/proof/result-01.jpg</span>
+            </div>
+            <figcaption class="result-caption">Verified result — 01</figcaption>
           </figure>
-          <!-- SCREENSHOT SLOT 2 -->
-          <figure class="media-card reveal" data-delay="80">
-            <div class="media-blur"></div>
-            <figcaption class="media-tag">Screenshot</figcaption>
+
+          <!-- RESULT SLOT 2 — replace placeholder with:
+               <img src="../assets/proof/result-02.jpg" alt="Verified customer result 2" loading="lazy" /> -->
+          <figure class="result-card reveal" data-delay="60">
+            <div class="result-placeholder">
+              <span class="ph-label">Result image</span>
+              <span class="ph-file">assets/proof/result-02.jpg</span>
+            </div>
+            <figcaption class="result-caption">Verified result — 02</figcaption>
           </figure>
-          <!-- SCREENSHOT SLOT 3 -->
-          <figure class="media-card reveal" data-delay="160">
-            <div class="media-blur"></div>
-            <figcaption class="media-tag">Screenshot</figcaption>
+
+          <!-- RESULT SLOT 3 — replace placeholder with:
+               <img src="../assets/proof/result-03.jpg" alt="Verified customer result 3" loading="lazy" /> -->
+          <figure class="result-card reveal" data-delay="120">
+            <div class="result-placeholder">
+              <span class="ph-label">Result image</span>
+              <span class="ph-file">assets/proof/result-03.jpg</span>
+            </div>
+            <figcaption class="result-caption">Verified result — 03</figcaption>
           </figure>
+
+          <!-- RESULT SLOT 4 — replace placeholder with:
+               <img src="../assets/proof/result-04.jpg" alt="Verified customer result 4" loading="lazy" /> -->
+          <figure class="result-card reveal" data-delay="180">
+            <div class="result-placeholder">
+              <span class="ph-label">Result image</span>
+              <span class="ph-file">assets/proof/result-04.jpg</span>
+            </div>
+            <figcaption class="result-caption">Verified result — 04</figcaption>
+          </figure>
+
+          <!-- RESULT SLOT 5 — optional. Delete this figure if unused,
+               or replace placeholder with:
+               <img src="../assets/proof/result-05.jpg" alt="Verified customer result 5" loading="lazy" /> -->
+          <figure class="result-card reveal" data-delay="240">
+            <div class="result-placeholder">
+              <span class="ph-label">Result image</span>
+              <span class="ph-file">assets/proof/result-05.jpg</span>
+            </div>
+            <figcaption class="result-caption">Verified result — 05</figcaption>
+          </figure>
+
+          <!-- RESULT SLOT 6 — optional. Delete this figure if unused,
+               or replace placeholder with:
+               <img src="../assets/proof/result-06.jpg" alt="Verified customer result 6" loading="lazy" /> -->
+          <figure class="result-card reveal" data-delay="300">
+            <div class="result-placeholder">
+              <span class="ph-label">Result image</span>
+              <span class="ph-file">assets/proof/result-06.jpg</span>
+            </div>
+            <figcaption class="result-caption">Verified result — 06</figcaption>
+          </figure>
+
+          <!-- To show 7 or 8 results, copy a figure block above and
+               use result-07.jpg / result-08.jpg. -->
         </div>
       </div>
     </section>
 
-    <!-- ====================================================
-         VIDEOS
-         Replace each .media-card.video body with a real video:
-         <video controls poster="../assets/images/thumb.jpg">
-           <source src="../assets/videos/clip.mp4" type="video/mp4" />
-         </video>
-         ==================================================== -->
-    <section class="proof-block">
+    <!-- Lightbox — filled in and controlled by proof.js.
+         Only cards that contain a real <img> open it. -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged result image" hidden>
+      <div class="modal-backdrop" data-close-lightbox></div>
+      <figure class="lightbox-panel">
+        <button class="modal-close" type="button" aria-label="Close image" data-close-lightbox>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+        </button>
+        <img id="lightbox-img" src="" alt="" />
+        <figcaption id="lightbox-caption"></figcaption>
+      </figure>
+    </div>
+
+    <!-- ============ DISCLAIMER ============ -->
+    <section class="proof-disclaimer">
       <div class="container">
-        <div class="block-head reveal">
-          <h2>Videos</h2>
-          <p class="block-note">Short recordings of complete runs.</p>
-        </div>
-
-        <div class="proof-grid grid-2">
-          <!-- VIDEO SLOT 1 -->
-          <figure class="media-card video reveal">
-            <div class="media-blur"></div>
-            <span class="play" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
-            </span>
-            <figcaption class="media-tag">Recording</figcaption>
-          </figure>
-          <!-- VIDEO SLOT 2 -->
-          <figure class="media-card video reveal" data-delay="80">
-            <div class="media-blur"></div>
-            <span class="play" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
-            </span>
-            <figcaption class="media-tag">Recording</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================
-         CUSTOMER RESULTS
-         Replace each .media-card with a testimonial, result
-         screenshot, or before/after. Keep names/details private.
-         ==================================================== -->
-    <section class="proof-block">
-      <div class="container">
-        <div class="block-head reveal">
-          <h2>Customer results</h2>
-          <p class="block-note">Outcomes and feedback from people using Nova.</p>
-        </div>
-
-        <div class="proof-grid grid-3">
-          <!-- RESULT SLOT 1 -->
-          <figure class="media-card reveal">
-            <div class="media-blur"></div>
-            <figcaption class="media-tag">Result</figcaption>
-          </figure>
-          <!-- RESULT SLOT 2 -->
-          <figure class="media-card reveal" data-delay="80">
-            <div class="media-blur"></div>
-            <figcaption class="media-tag">Result</figcaption>
-          </figure>
-          <!-- RESULT SLOT 3 -->
-          <figure class="media-card reveal" data-delay="160">
-            <div class="media-blur"></div>
-            <figcaption class="media-tag">Result</figcaption>
-          </figure>
-        </div>
+        <p class="disclaimer-text reveal">These reviews describe individual customer experiences. Availability varies by location and time, and Nova does not guarantee a specific shift or employment outcome.</p>
       </div>
     </section>
 
@@ -154,8 +215,8 @@
     <section class="section proof-cta">
       <div class="container">
         <div class="proof-cta-card reveal">
-          <h2>Ready to stay ahead?</h2>
-          <p>Choose a plan and start catching shifts as they open.</p>
+          <h2>Ready to let Nova start watching?</h2>
+          <p>Choose a plan and let Nova handle the monitoring for you.</p>
           <a href="pricing.html" class="btn btn-primary">Get Started</a>
         </div>
       </div>
@@ -176,7 +237,7 @@
             <h4>Product</h4>
             <ul>
               <li><a href="../index.html">Home</a></li>
-              <li><a href="proof.html">Proof</a></li>
+              <li><a href="proof.html">Reviews &amp; Results</a></li>
               <li><a href="pricing.html">Get Started</a></li>
               <li><a href="setup.html">Setup</a></li>
             </ul>
@@ -206,5 +267,6 @@
   <script src="../js/main.js"></script>
   <script src="../js/navigation.js"></script>
   <script src="../js/animations.js"></script>
+  <script src="../js/proof.js"></script>
 </body>
 </html>

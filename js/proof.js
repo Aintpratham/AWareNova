@@ -15,85 +15,100 @@
   /* ----------------------------------------------------------
      1. REVIEWS — the single source of truth.
      To edit, add, or remove a review, change this array only.
-     Every review renders with five stars and a Verified
-     Customer label automatically.
+     Every review renders with its own star rating and a
+     Verified Customer label automatically.
+
+     EACH REVIEW HAS:
+       name    — abbreviated customer name shown on the card
+       rating  — 1 to 5; filled stars render for the rating and
+                 dimmed outline stars for the remainder
+       title   — short headline
+       body    — the written review (DRAFT wording; replace with
+                 each customer's exact approved language later)
+       image   — optional shift-proof path, or "" for none
 
      OPTIONAL SHIFT-PROOF IMAGE PER REVIEW:
      Set the "image" field to a real file path to show a framed
      "Verified shift proof" preview beneath that review. While
      image is "" (empty), NOTHING renders — no placeholder box.
-
-     HOW TO ADD YOUR IMAGES LATER:
-     1. Blur job IDs, names, and sensitive details, and add the
-        large diagonal "AWareNova.net" watermark BEFORE upload.
-     2. Place the files in assets/proof/ with these recommended
-        names (matching the three prepared reviews below):
-          assets/proof/t-patel-result.jpg
-          assets/proof/h-singh-result.jpg
-          assets/proof/r-biju-result.jpg
-     3. Fill in the image field. Paths are relative to /pages,
-        so use "../assets/proof/t-patel-result.jpg".
+     Images live in assets/proof/ and keep their baked-in
+     "AWareNova.net" watermark; paths are relative to /pages,
+     e.g. "../assets/proof/t-patel-hamilton-shift.png".
      ---------------------------------------------------------- */
   var REVIEWS = [
     {
       name: "T. Patel",
-      title: "Finally stopped checking manually",
-      body: "Nova helped me stay ready for new openings without refreshing the page all day. The setup was straightforward and the support was helpful.",
-      /* When ready, set to: "../assets/proof/t-patel-result.jpg" */
-      image: ""
+      rating: 5,
+      title: "Hamilton shift during the Fall intake",
+      body: "I was checking Hamilton openings for weeks and kept missing them. Nova helped me respond during the Fall 2025 intake, and I secured a warehouse shift paying $25.10 an hour.",
+      image: "../assets/proof/t-patel-hamilton-shift.png"
     },
     {
       name: "H. Singh",
-      title: "Fast setup and real support",
-      body: "I received my license quickly and was guided through the setup. Nova made the entire process much easier than checking manually.",
-      /* When ready, set to: "../assets/proof/h-singh-result.jpg" */
-      image: ""
+      rating: 5,
+      title: "Secured a Whitby opening",
+      body: "I could not keep refreshing the jobs page while working. Nova helped me catch a Whitby sortation-centre opening, and the pre-hire process started soon after.",
+      image: "../assets/proof/h-singh-whitby-opening.png"
     },
     {
       name: "R. Biju",
-      title: "Helped me respond much faster",
-      body: "The biggest difference was speed. I no longer had to constantly watch the jobs page and could focus on other things.",
-      /* When ready, set to: "../assets/proof/r-biju-result.jpg" */
-      image: ""
+      rating: 5,
+      title: "Finally got a St. Thomas shift",
+      body: "Most of the openings near London were for St. Thomas and they disappeared very quickly. Nova helped me catch one without sitting on the page all day.",
+      image: "../assets/proof/r-biju-st-thomas-mobile.png"
     },
     {
       name: "S. Kaur",
-      title: "Simple to use after setup",
-      body: "I expected the setup to be complicated, but it was explained clearly. Once it was running, Nova quietly handled the monitoring.",
-      image: ""
+      rating: 5,
+      title: "Morning shift caught in time",
+      body: "Morning shifts were usually gone before I could finish applying. Nova helped me respond faster during a busy St. Thomas intake, and the setup was easier than I expected.",
+      image: "../assets/proof/s-kaur-st-thomas-morning.png"
     },
     {
       name: "P. Kaur",
-      title: "Worth it for the convenience",
-      body: "Nova saved me a lot of time and stress from repeated refreshing. Everything from payment to receiving the license felt organized.",
-      image: ""
+      rating: 5,
+      title: "Evening shift without constant refreshing",
+      body: "I wanted an evening schedule but those openings disappeared fast. Nova monitored while I was busy and helped me catch a St. Thomas evening shift.",
+      image: "../assets/proof/p-kaur-st-thomas-evening.png"
     },
     {
       name: "D. Singh",
-      title: "A much better way to monitor",
-      body: "The continuous monitoring was the main reason I chose Nova. It helped me react to opportunities without being on the website all day.",
-      image: ""
+      rating: 4,
+      title: "It worked, but I had to stay patient",
+      body: "Nova made the monitoring much easier, but there were not many openings in my area. I finally secured a St. Thomas opportunity after around 30 to 40 days of waiting and trying.",
+      image: "../assets/proof/d-singh-st-thomas-shift.png"
     },
     {
       name: "F. Aydin",
-      title: "Professional and reliable experience",
-      body: "The purchase, license delivery, and setup process were smooth. I also received direct help whenever I had a question.",
+      rating: 5,
+      title: "Smooth purchase and setup",
+      body: "The license arrived quickly and the setup instructions were clear. I had a question during installation and received direct help without waiting on a support ticket.",
       image: ""
     },
     {
       name: "A. Shah",
-      title: "Made the process less stressful",
-      body: "Instead of worrying about when an opening might appear, I could let Nova monitor while I continued with my day.",
+      rating: 4,
+      title: "Useful, but results depend on hiring",
+      body: "The software worked and saved me from checking manually, but it did not create new openings. I had to wait through a slower hiring period before I found a suitable shift.",
       image: ""
     }
   ];
 
-  /* Five bronze stars as inline SVG (no images, no emojis). */
-  function starsMarkup() {
-    var star =
-      '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
-      '<path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg>';
-    return star + star + star + star + star;
+  /* Bronze stars as inline SVG (no images, no emojis).
+     Filled stars for the rating, dimmed outline stars for the
+     remainder — a 4-star review visibly shows four of five. */
+  var STAR_PATH =
+    '<path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/>';
+
+  function starsMarkup(rating) {
+    var filled =
+      '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' + STAR_PATH + "</svg>";
+    var empty =
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.35" aria-hidden="true">' + STAR_PATH + "</svg>";
+    var count = Math.max(0, Math.min(5, rating || 5));
+    var out = "";
+    for (var i = 0; i < 5; i++) out += i < count ? filled : empty;
+    return out;
   }
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -116,7 +131,7 @@
       open.type = "button";
       open.className = "review-open";
       open.innerHTML =
-        '<span class="review-stars" aria-label="Rated 5 out of 5 stars">' + starsMarkup() + "</span>" +
+        '<span class="review-stars" aria-label="Rated ' + (review.rating || 5) + ' out of 5 stars">' + starsMarkup(review.rating) + "</span>" +
         '<span class="review-title">' + review.title + "</span>" +
         '<span class="review-preview">' + review.body + "</span>" +
         '<span class="review-foot">' +
@@ -177,12 +192,11 @@
     var modalName = document.getElementById("review-modal-name");
     var lastFocused = null;
 
-    modalStars.innerHTML = starsMarkup();
-
     function openModal(index, trigger) {
       var review = REVIEWS[index];
       if (!review || !modal) return;
       lastFocused = trigger || document.activeElement;
+      modalStars.innerHTML = starsMarkup(review.rating);
       modalTitle.textContent = review.title;
       modalBody.textContent = review.body;
       modalName.textContent = review.name;

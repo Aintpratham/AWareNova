@@ -34,6 +34,11 @@
   font-size: 0.98rem;
 }
 
+.block-note + .block-note {
+  margin-top: 6px;
+  max-width: 640px;
+}
+
 /* ============================================================
    1. REVIEW GRID
    All eight reviews visible at once — no carousel, no swiping.

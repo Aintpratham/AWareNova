@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Nova Phase5 — The fastest way to secure Amazon warehouse shifts</title>
-  <meta name="description" content="Nova watches for new Amazon warehouse opportunities and reacts the moment they appear, so you can reach openings before most applicants ever see them. Windows and macOS." />
+  <meta name="description" content="Nova is desktop software for Amazon warehouse applicants. It watches for new warehouse openings on your own computer so you can apply first. Windows and macOS." />
   <meta name="theme-color" content="#050505" />
 
   <!-- Favicon / touch icon -->
@@ -13,7 +13,7 @@
 
   <!-- Open Graph (awarenova.ca) -->
   <meta property="og:title" content="Nova Phase5 — Secure Amazon warehouse shifts faster" />
-  <meta property="og:description" content="Nova watches for new Amazon warehouse openings and reacts the moment they appear." />
+  <meta property="og:description" content="Desktop software that watches for new Amazon warehouse openings so you can apply first." />
   <meta property="og:type" content="website" />
   <!-- TODO: set absolute URL + share image once deployed to awarenova.ca -->
   <!-- <meta property="og:url" content="https://awarenova.ca/" /> -->
@@ -56,33 +56,80 @@
   <main>
 
     <!-- ============ 1. HERO ============
-         The funnel entrance. One promise, two exits:
-         Get Started (pricing) or See Proof (trust first). -->
+         Headline stays fixed. The intro's job is to say
+         "this is software" in the first sentence, so nobody
+         reads on thinking we place people in jobs. -->
     <header class="hero" id="hero">
       <div class="container">
         <span class="eyebrow">Awarenova</span>
         <h1>The fastest way to secure Amazon warehouse shifts.</h1>
         <p class="hero-intro">
-          When a new shift opens, the window to act is small. Nova watches the
-          openings for you, so you're among the first to know — and the first
-          to move.
+          Nova is desktop software that watches the Amazon jobs site for you.
+          The moment new warehouse openings appear, you know — so you can
+          apply while the shift is still there.
         </p>
         <div class="hero-actions">
           <a href="pages/pricing.html" class="btn btn-primary btn-block">Get Started</a>
           <a href="pages/proof.html" class="btn btn-secondary btn-block">See Proof</a>
         </div>
-        <p class="hero-trust">Instant license delivery &bull; Windows &amp; macOS &bull; Direct support</p>
+        <p class="hero-trust">Desktop software &bull; Windows &amp; macOS &bull; Instant license delivery</p>
       </div>
     </header>
 
-    <!-- ============ 2. REALITY HOOK ============
+    <!-- ============ 2. WHAT YOU'RE BUYING ============
+         The anti-confusion section. A Marketplace buyer's first
+         question is "am I paying someone to get me a job?" —
+         this answers it before they ask: you're buying software
+         you install, run, and control yourself. -->
+    <section class="section whatis panel">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">What you're buying</span>
+          <h2>Nova is software you own and run — on your computer, with your account.</h2>
+          <p>
+            When you purchase Nova, you instantly receive a software license by
+            email. You install Nova on your own Windows or macOS computer, sign
+            in with your own Amazon account, and leave it running. From that
+            moment, Nova quietly watches for new warehouse openings while you
+            get on with your day.
+          </p>
+          <p>
+            Your Amazon account stays completely yours. Nova keeps watch — you
+            see every opening and decide which shifts to apply for.
+          </p>
+        </div>
+
+        <div class="whatis-facts">
+          <div class="fact-item reveal">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="13" rx="1.5" /><path d="M8 20h8M12 17v3" />
+            </svg>
+            <span>Software you install on your own computer</span>
+          </div>
+          <div class="fact-item reveal" data-delay="60">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="8" r="4" /><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6" />
+            </svg>
+            <span>You sign in with your own Amazon account</span>
+          </div>
+          <div class="fact-item reveal" data-delay="120">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" />
+            </svg>
+            <span>You choose which shifts to apply for</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. REALITY HOOK ============
          The one urgency-driven section on the page. Tension comes
          from competing applicants, not from Amazon or from claims
          we can't back up. -->
-    <section class="section reality panel">
+    <section class="section reality">
       <div class="container">
         <div class="section-head reveal">
-          <span class="eyebrow">The reality</span>
+          <span class="eyebrow">Why speed matters</span>
           <h2>You're not competing with Amazon. You're competing with everyone else watching that page.</h2>
           <p>
             Every open shift has more people wanting it than spots available,
@@ -98,12 +145,12 @@
       </div>
     </section>
 
-    <!-- ============ 3. MEET NOVA ============ -->
-    <section class="section meet">
+    <!-- ============ 4. MEET NOVA ============ -->
+    <section class="section meet panel">
       <div class="container">
         <div class="section-head centered reveal">
           <span class="eyebrow">Meet Nova</span>
-          <h2>One job: watch, detect, react.</h2>
+          <h2>One job: watch, spot, alert.</h2>
           <p>Nova runs on your computer and keeps its eyes on the openings, so yours don't have to be.</p>
         </div>
 
@@ -112,52 +159,102 @@
             <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <circle cx="12" cy="12" r="3" /><circle cx="12" cy="12" r="9" />
             </svg>
-            <h3>Continuous Monitoring</h3>
-            <p>Nova keeps watching for new opportunities around the clock, so you never have to babysit the jobs website again.</p>
+            <h3>Always Watching</h3>
+            <p>Nova keeps an eye out for new openings around the clock, so you never have to babysit the jobs website again.</p>
           </article>
 
           <article class="help-card reveal" data-delay="80">
             <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z" />
             </svg>
-            <h3>Instant Detection</h3>
-            <p>The moment a new opening appears, Nova reacts — instead of waiting for you to notice it hours later.</p>
+            <h3>Knows the Moment</h3>
+            <p>The instant a new opening appears, Nova spots it — instead of you finding out hours later.</p>
           </article>
 
           <article class="help-card reveal" data-delay="160">
             <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M4 17 10 11 14 15 20 7" /><path d="M14 7h6v6" />
             </svg>
-            <h3>Engineered for Speed</h3>
-            <p>Everything about Nova is built to close the gap between a shift opening and you reaching it first.</p>
+            <h3>Built for Speed</h3>
+            <p>Everything about Nova is designed to close the gap between a shift opening and you reaching it first.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ============ 4. INSTANT ACCESS ============
-         Friction remover, not urgency. Answers "how long until
-         I actually have this?" right after the product pitch. -->
-    <section class="section instant panel">
+    <!-- ============ 5. HOW NOVA WORKS ============
+         Six plain-English steps from purchase to first
+         application. Deliberately no backend language — this
+         reads like instructions a friend would give you. -->
+    <section class="section how">
       <div class="container">
         <div class="section-head centered reveal">
-          <span class="eyebrow">Instant access</span>
-          <h2>From checkout to monitoring, fast</h2>
-          <p>There's no waiting list and no approval process. Checkout is open anytime, day or night.</p>
+          <span class="eyebrow">How Nova works</span>
+          <h2>From purchase to your first application</h2>
+          <p>Six simple steps. No technical skills needed at any point.</p>
         </div>
 
-        <div class="instant-grid">
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-num">1</span>
+            <h3>Purchase Nova</h3>
+            <p>Choose the plan that fits you and check out securely.</p>
+          </li>
+          <li class="step reveal" data-delay="60">
+            <span class="step-num">2</span>
+            <h3>Receive your license instantly</h3>
+            <p>Your license key arrives by email right after payment — no waiting.</p>
+          </li>
+          <li class="step reveal" data-delay="120">
+            <span class="step-num">3</span>
+            <h3>Install in a few minutes</h3>
+            <p>Download Nova onto your Windows or macOS computer and follow the short guided setup.</p>
+          </li>
+          <li class="step reveal" data-delay="180">
+            <span class="step-num">4</span>
+            <h3>Sign into your Amazon account</h3>
+            <p>You log in yourself, on your own computer. Your account stays fully in your hands.</p>
+          </li>
+          <li class="step reveal" data-delay="240">
+            <span class="step-num">5</span>
+            <h3>Leave Nova running</h3>
+            <p>Nova keeps watch for new warehouse openings while you carry on with your day.</p>
+          </li>
+          <li class="step reveal" data-delay="300">
+            <span class="step-num">6</span>
+            <h3>Apply when openings appear</h3>
+            <p>You see new shifts as they show up and go after the ones you actually want.</p>
+          </li>
+        </ol>
+
+        <p class="how-outro reveal">Your only job is choosing which shifts you want.</p>
+      </div>
+    </section>
+
+    <!-- ============ 6. WHAT'S INCLUDED ============
+         Replaces the old "Instant Access" section — same layout,
+         but now it answers "what do I actually get for my money?"
+         in one glance. -->
+    <section class="section included panel">
+      <div class="container">
+        <div class="section-head centered reveal">
+          <span class="eyebrow">What's included</span>
+          <h2>Everything you need, in one purchase</h2>
+          <p>No add-ons and no hidden extras — one price covers all of it.</p>
+        </div>
+
+        <div class="instant-grid included-grid">
           <div class="instant-item reveal">
             <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 3" />
+              <rect x="4" y="10" width="16" height="11" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" />
             </svg>
-            <span>Checkout available 24/7</span>
+            <span>Your Nova software license</span>
           </div>
           <div class="instant-item reveal" data-delay="60">
             <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" />
             </svg>
-            <span>License delivered instantly by email</span>
+            <span>Instant digital delivery by email</span>
           </div>
           <div class="instant-item reveal" data-delay="120">
             <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -167,50 +264,31 @@
           </div>
           <div class="instant-item reveal" data-delay="180">
             <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M5 12h4l2-7 4 14 2-7h2" />
+              <path d="M21 12a9 9 0 1 1-3-6.7" /><path d="M21 4v4h-4" />
             </svg>
-            <span>Start monitoring the same day</span>
+            <span>Updates for your full plan</span>
+          </div>
+          <div class="instant-item reveal" data-delay="240">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="13" rx="1.5" /><path d="M8 20h8M12 17v3" />
+            </svg>
+            <span>Works on Windows and macOS</span>
+          </div>
+          <div class="instant-item reveal" data-delay="300">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" />
+            </svg>
+            <span>Direct support from a real person</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ 5. HOW IT WORKS ============
-         A real sequence, so the numbered steps carry meaning. -->
-    <section class="section how">
-      <div class="container">
-        <div class="section-head centered reveal">
-          <span class="eyebrow">How it works</span>
-          <h2>Three steps, then Nova takes over</h2>
-        </div>
-
-        <ol class="steps">
-          <li class="step reveal">
-            <span class="step-num">1</span>
-            <h3>Purchase</h3>
-            <p>Pick a plan and check out. Your license key lands in your inbox right away.</p>
-          </li>
-          <li class="step reveal" data-delay="80">
-            <span class="step-num">2</span>
-            <h3>Guided Setup</h3>
-            <p>Follow the short setup guide — and if anything is unclear, a real person walks you through it.</p>
-          </li>
-          <li class="step reveal" data-delay="160">
-            <span class="step-num">3</span>
-            <h3>Nova Starts Watching</h3>
-            <p>Nova begins monitoring immediately and reacts the moment new openings appear.</p>
-          </li>
-        </ol>
-
-        <p class="how-outro reveal">Your only job is choosing which shifts you want.</p>
-      </div>
-    </section>
-
-    <!-- ============ 6. REVIEWS PREVIEW ============
+    <!-- ============ 7. REVIEWS PREVIEW ============
          A tease, not the full proof page. Two/three compact
          cards pulled from the REVIEWS array on See Proof
          (js/proof.js) — keep the wording in sync with it. -->
-    <section class="section reviews-preview panel">
+    <section class="section reviews-preview">
       <div class="container">
         <div class="section-head centered reveal">
           <span class="eyebrow">Customer reviews</span>
@@ -226,7 +304,7 @@
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg>
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg>
             </div>
-            <blockquote>I was checking Hamilton openings for weeks and kept missing them. Nova helped me respond during the Fall 2025 intake, and I secured a shift paying $25.10 an hour.</blockquote>
+            <blockquote>Nova helped me stay ready for new openings without refreshing the page all day. Setup was straightforward and the support was actually helpful.</blockquote>
             <figcaption>T. Patel <span class="rp-verified">Verified Customer</span></figcaption>
           </figure>
 
@@ -238,7 +316,7 @@
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg>
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg>
             </div>
-            <blockquote>Most of the openings near London were for St. Thomas and they disappeared very quickly. Nova helped me catch one without sitting on the page all day.</blockquote>
+            <blockquote>The biggest difference was speed. I didn't have to constantly watch the jobs page anymore and could focus on other things.</blockquote>
             <figcaption>R. Biju <span class="rp-verified">Verified Customer</span></figcaption>
           </figure>
 
@@ -250,7 +328,7 @@
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg>
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg>
             </div>
-            <blockquote>I wanted an evening schedule but those openings disappeared fast. Nova monitored while I was busy and helped me catch a St. Thomas evening shift.</blockquote>
+            <blockquote>Nova saved me a lot of time and stress from repeated refreshing. Everything from payment to getting the license felt organized.</blockquote>
             <figcaption>P. Kaur <span class="rp-verified">Verified Customer</span></figcaption>
           </figure>
         </div>
@@ -263,8 +341,8 @@
       </div>
     </section>
 
-    <!-- ============ 7. WHY NOVA ============ -->
-    <section class="section why">
+    <!-- ============ 8. WHY NOVA ============ -->
+    <section class="section why panel">
       <div class="container">
         <div class="section-head centered reveal">
           <span class="eyebrow">Why Nova</span>
@@ -308,7 +386,43 @@
       </div>
     </section>
 
-    <!-- ============ 8. PRICING SIGNAL ============
+    <!-- ============ 9. GOOD TO KNOW ============
+         Honest expectations, framed positively. This block does
+         quiet trust work for buyers who've been burned by "pay
+         me and I'll get you hired" offers on Marketplace. -->
+    <section class="section clarity">
+      <div class="container">
+        <div class="clarity-card reveal">
+          <span class="eyebrow">Good to know</span>
+          <h2>Nova is a tool you own — not a middleman</h2>
+          <p class="clarity-intro">
+            We want you to buy Nova knowing exactly what it is. A few honest
+            points, so there's never a wrong expectation:
+          </p>
+
+          <ul class="clarity-list">
+            <li class="reveal">
+              <strong>Nova isn't a job placement service.</strong>
+              It's software. It helps you act quickly on openings Amazon posts — nobody applies on your behalf.
+            </li>
+            <li class="reveal" data-delay="60">
+              <strong>Nova doesn't create job openings.</strong>
+              Amazon decides when shifts open. Nova makes sure you're among the first to see them.
+            </li>
+            <li class="reveal" data-delay="120">
+              <strong>Nova doesn't promise hiring.</strong>
+              Hiring decisions always stay with Amazon. Nova gives you the best possible chance to be first in line.
+            </li>
+            <li class="reveal" data-delay="180">
+              <strong>Nova never uses your account without you.</strong>
+              You sign in on your own computer and stay in control of everything Nova does for you.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 10. PRICING SIGNAL ============
          Not a pricing page — just enough that nobody is
          surprised at checkout. The figures below are rendered
          from js/home.js (HOME_PLANS), which mirrors the PLANS
@@ -319,8 +433,8 @@
           <span class="eyebrow">Pricing</span>
           <h2>A one-time purchase, not a subscription</h2>
           <p>
-            Every plan includes your Nova license, guided setup, and direct
-            support. Plans start at <strong data-plan-price="base">$499 CAD</strong>
+            Every plan includes your Nova software license, guided setup, and
+            direct support. Plans start at <strong data-plan-price="base">$499 CAD</strong>
             — the full breakdown is one tap away, so there are no surprises
             at checkout.
           </p>
@@ -336,9 +450,10 @@
       </div>
     </section>
 
-    <!-- ============ 9. FAQ ============
-         Max six questions. First one answers the biggest
-         Marketplace-buyer worry: "when do I actually get it?" -->
+    <!-- ============ 11. FAQ ============
+         Max six questions, ordered by what a Marketplace buyer
+         worries about first: delivery, what it is, account
+         safety, billing, setup, and honest expectations. -->
     <section class="section faq-home">
       <div class="container">
         <div class="section-head centered reveal">
@@ -353,13 +468,13 @@
           </details>
 
           <details class="faq-item reveal">
-            <summary>What exactly does Nova do?</summary>
-            <div class="faq-answer"><p>Nova continuously watches for new Amazon warehouse opportunities and reacts the moment they appear, so you can respond to openings before most applicants notice them.</p></div>
+            <summary>What exactly am I paying for?</summary>
+            <div class="faq-answer"><p>A license for the Nova desktop software, delivered instantly by email. You install it on your own Windows or macOS computer, and it watches for new Amazon warehouse openings for the full length of your plan — with guided setup, updates, and direct support included.</p></div>
           </details>
 
           <details class="faq-item reveal">
-            <summary>Will it work on my computer?</summary>
-            <div class="faq-answer"><p>Yes — Nova runs on both Windows and macOS with the same workflow and speed, and no extra configuration.</p></div>
+            <summary>Do I have to give you my Amazon account?</summary>
+            <div class="faq-answer"><p>No — never. You sign into your Amazon account yourself, on your own computer, the same way you always do. Your account stays in your hands, and you choose which shifts to apply for.</p></div>
           </details>
 
           <details class="faq-item reveal">
@@ -369,26 +484,26 @@
 
           <details class="faq-item reveal">
             <summary>Do I need to be technical to set it up?</summary>
-            <div class="faq-answer"><p>Not at all. Setup is a short, guided process that takes a few minutes, and direct support is there if anything is unclear.</p></div>
+            <div class="faq-answer"><p>Not at all. Setup is a short, guided process that takes a few minutes on Windows or macOS, and direct support is there if anything is unclear.</p></div>
           </details>
 
           <details class="faq-item reveal">
             <summary>Will Nova get me a shift?</summary>
-            <div class="faq-answer"><p>Nova removes the slowest part of the process — noticing that an opening exists and reacting to it. Which shifts appear still depends on your location and timing, so results vary from person to person.</p></div>
+            <div class="faq-answer"><p>Nova removes the slowest part of the process — noticing that an opening exists so you can go after it. Which shifts appear still depends on your location and timing, and hiring is always Amazon's decision, so results vary from person to person.</p></div>
           </details>
         </div>
       </div>
     </section>
 
-    <!-- ============ 10. FINAL CTA ============ -->
+    <!-- ============ 12. FINAL CTA ============ -->
     <section class="section final-cta" id="final-cta">
       <div class="container">
         <div class="final-card reveal">
           <span class="eyebrow">Get started</span>
           <h2>Ready when the next shift is</h2>
           <p>
-            Checkout takes only a few minutes, your license arrives instantly
-            by email, and Nova can begin monitoring right away.
+            Checkout takes only a few minutes, your software license arrives
+            instantly by email, and Nova can start watching for openings today.
           </p>
           <a href="pages/pricing.html" class="btn btn-primary">Get Started</a>
         </div>
@@ -411,7 +526,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a href="index.html" class="nav-logo">Nova<span class="mark">Phase5</span></a>
-          <p>Built for Amazon warehouse applicants. Stay ahead of new shifts on Windows and macOS.</p>
+          <p>Desktop software for Amazon warehouse applicants. Stay ahead of new shifts on Windows and macOS.</p>
         </div>
 
         <div class="footer-cols">

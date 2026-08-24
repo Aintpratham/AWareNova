@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Nova Phase5 — The fastest way to secure Amazon warehouse shifts</title>
   <meta name="description" content="Nova is desktop software for Amazon warehouse applicants. It watches for new warehouse openings on your own computer so you can apply first. Windows and macOS." />
-  <meta name="theme-color" content="#050505" />
+  <meta name="theme-color" content="#FFFFFF" />
 
   <!-- Favicon / touch icon -->
   <link rel="icon" type="image/png" href="assets/icon.png" />
@@ -19,10 +19,10 @@
   <!-- <meta property="og:url" content="https://awarenova.ca/" /> -->
   <!-- <meta property="og:image" content="https://awarenova.ca/assets/images/og.png" /> -->
 
-  <!-- Fonts: Space Grotesk (display), Inter (body), JetBrains Mono (utility) -->
+  <!-- Fonts: Inter (display + body), JetBrains Mono (micro-labels) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <!-- Styles: global + page-specific -->
   <link rel="stylesheet" href="css/global.css" />
@@ -61,16 +61,20 @@
          reads on thinking we place people in jobs. -->
     <header class="hero" id="hero">
       <div class="container">
-        <span class="eyebrow">Awarenova</span>
-        <h1>The fastest way to secure Amazon warehouse shifts.</h1>
-        <p class="hero-intro">
-          Nova is desktop software that continuously checks the Amazon jobs site using your own Amazon account. When a new warehouse shift becomes available, Nova applies immediately—giving you the best chance of securing it before it's gone.
-        </p>
-        <div class="hero-actions">
-          <a href="pages/pricing.html" class="btn btn-primary btn-block">Get Started</a>
-          <a href="pages/proof.html" class="btn btn-secondary btn-block">See Proof</a>
+        <div class="hero-lead">
+          <span class="eyebrow">Awarenova</span>
+          <h1>The fastest way to secure Amazon warehouse shifts.</h1>
         </div>
-        <p class="hero-trust">Desktop software &bull; Windows &amp; macOS &bull; Easy Setup</p>
+        <div class="hero-support">
+          <p class="hero-intro">
+            Nova is desktop software that continuously checks the Amazon jobs site using your own Amazon account. When a new warehouse shift becomes available, Nova applies immediately—giving you the best chance of securing it before it's gone.
+          </p>
+          <div class="hero-actions">
+            <a href="pages/pricing.html" class="btn btn-primary btn-block">Get Started</a>
+            <a href="pages/proof.html" class="btn btn-secondary btn-block">See Proof</a>
+          </div>
+          <p class="hero-trust">Desktop software &bull; Windows &amp; macOS &bull; Easy Setup</p>
+        </div>
       </div>
     </header>
 
@@ -508,11 +512,13 @@
   </main>
 
   <!-- ============ STICKY MOBILE CTA ============
-       Shown by js/home.js after the visitor scrolls past the
-       hero; hidden again once the final CTA is on screen.
+       Visible from first paint on phones (css/home.css), so no
+       scrolling is needed to reach it. js/home.js only hides it
+       again once the final CTA is on screen, to avoid offering
+       the same action twice.
        Desktop never sees it (css/home.css hides it >=720px). -->
-  <div class="sticky-cta" id="sticky-cta" aria-hidden="true">
-    <a href="pages/pricing.html" class="btn btn-primary btn-block" tabindex="-1">Get Started</a>
+  <div class="sticky-cta" id="sticky-cta" aria-hidden="false">
+    <a href="pages/pricing.html" class="btn btn-primary btn-block">Get Started</a>
   </div>
 
   <!-- ============ FOOTER ============ -->

@@ -94,7 +94,7 @@
     }
   ];
 
-  /* Bronze stars as inline SVG (no images, no emojis).
+  /* Accent-coloured stars as inline SVG (no images, no emojis).
      Filled stars for the rating, dimmed outline stars for the
      remainder — a 4-star review visibly shows four of five. */
   var STAR_PATH =

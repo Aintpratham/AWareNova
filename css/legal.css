@@ -1,47 +1,127 @@
 /* ============================================================
    LEGAL + CONTACT STYLES
    Shared by terms.html, privacy.html, and contact.html.
-   Simple, readable, single-column document layouts. Mobile-first.
+   Long-form documents: narrow measure, hairline section rules,
+   and a quiet sticky contents rail on desktop.
    ============================================================ */
 
 .legal-hero {
-  padding: clamp(56px, 11vw, 110px) 0 clamp(24px, 5vw, 32px);
+  padding: clamp(36px, 6vw, 80px) 0 clamp(20px, 3.5vw, 30px);
   border-bottom: 1px solid var(--border-soft);
+  background: var(--bg-0);
 }
 
-.legal-hero .eyebrow { margin-bottom: 20px; }
+.legal-hero .eyebrow { margin-bottom: 14px; }
 
 .legal-hero .hero-lede {
   color: var(--text-2);
-  font-size: 1.05rem;
-  margin-top: 16px;
-  max-width: 520px;
+  font-size: 1.02rem;
+  margin-top: 12px;
+  max-width: 52ch;
 }
 
 .legal-hero p.dateline {
   color: var(--text-muted);
   font-family: var(--font-mono);
-  font-size: 0.82rem;
-  letter-spacing: 0.04em;
-  margin-top: 14px;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 12px;
 }
 
 .legal-body {
-  padding: clamp(40px, 7vw, 56px) 0 clamp(64px, 11vw, 110px);
+  padding: clamp(28px, 5vw, 56px) 0 clamp(56px, 9vw, 104px);
 }
 
-.legal-content { max-width: 760px; }
+/* Flex (not grid) so privacy.html, which has no contents rail,
+   still fills the full column width. */
+.legal-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+.legal-intro {
+  max-width: 68ch;
+  margin-bottom: clamp(24px, 4vw, 36px);
+}
+
+.legal-intro p {
+  font-size: 1.02rem;
+  line-height: 1.72;
+  color: var(--text-2);
+}
+
+.legal-intro p + p { margin-top: 12px; }
+
+.legal-intro a,
+.legal-contact a {
+  color: var(--accent);
+  font-weight: 500;
+  border-bottom: 1px solid var(--accent-line);
+  transition: border-color 0.18s var(--ease);
+}
+
+.legal-intro a:hover,
+.legal-contact a:hover { border-color: var(--accent); }
+
+.legal-content {
+  max-width: 72ch;
+  width: 100%;
+  min-width: 0;
+}
+
+/* ---------- CONTENTS RAIL ---------- */
+.legal-toc {
+  width: 100%;
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
+  padding: 16px 0 10px;
+}
+
+.toc-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.toc-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.toc-list a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 0.91rem;
+  color: var(--text-2);
+  transition: color 0.18s var(--ease);
+}
+
+.toc-list a:hover { color: var(--accent); }
+
+/* ---------- SECTIONS ---------- */
+.legal-cards {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border-soft);
+}
 
 .legal-section {
-  padding: clamp(24px, 5vw, 30px) 0;
+  padding: clamp(22px, 4vw, 30px) 0;
   border-bottom: 1px solid var(--border-soft);
+  scroll-margin-top: calc(var(--nav-height) + 16px);
 }
 
-.legal-section:last-child { border-bottom: 0; }
-
 .legal-section h2 {
-  font-size: clamp(1.2rem, 4vw, 1.4rem);
-  margin-bottom: 12px;
+  font-size: clamp(1.1rem, 3.4vw, 1.25rem);
+  margin-bottom: 10px;
   display: flex;
   align-items: baseline;
   gap: 12px;
@@ -49,132 +129,203 @@
 
 .legal-section h2 .num {
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: 0.72rem;
+  font-weight: 500;
   color: var(--accent);
+  letter-spacing: 0.08em;
 }
 
-.legal-section p { font-size: 1rem; line-height: 1.7; }
+.legal-section p {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--text-2);
+}
+
+.legal-section p + p { margin-top: 10px; }
+
+.legal-list {
+  list-style: none;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.legal-list li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 0.96rem;
+  line-height: 1.68;
+  color: var(--text-2);
+}
+
+.legal-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 8px;
+  height: 1px;
+  background: var(--border-strong);
+}
+
+.legal-contact {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.98rem;
+}
+
+.legal-contact a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  align-self: flex-start;
+}
 
 /* Placeholder / work-in-progress notice */
 .notice {
   max-width: 560px;
-  margin: 0 auto;
-  text-align: center;
-  background: var(--bg-2);
-  border: 1px dashed var(--border-copper);
+  text-align: left;
+  border: 1px solid var(--border-soft);
   border-radius: var(--radius);
-  padding: clamp(40px, 8vw, 56px) 32px;
+  padding: clamp(28px, 5vw, 44px);
 }
 
-.notice .eyebrow { justify-content: center; margin-bottom: 20px; }
-.notice h2 { font-size: 1.6rem; margin-bottom: 12px; }
-.notice p { max-width: 380px; margin: 0 auto; color: var(--text-2); }
+.notice .eyebrow { justify-content: flex-start; margin-bottom: 14px; }
+.notice h2 { font-size: 1.4rem; margin-bottom: 10px; }
+.notice p { max-width: 46ch; color: var(--text-2); }
 
 /* ---------- CONTACT ---------- */
+/* The support address is the page's headline, not a boxed card. */
 .contact-lead {
-  text-align: center;
-  padding: clamp(24px, 6vw, 40px);
-  margin-bottom: clamp(28px, 5vw, 40px);
-  background: linear-gradient(180deg, rgba(197, 139, 92, 0.06), var(--bg-2) 50%);
-  border: 1px solid var(--border-copper);
-  border-radius: var(--radius);
+  text-align: left;
+  padding: 0 0 clamp(28px, 5vw, 40px);
+  margin-bottom: clamp(28px, 5vw, 44px);
+  border-bottom: 1px solid var(--border-soft);
+  background: none;
 }
 
 .contact-lead .label {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.64rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--text-muted);
   display: block;
   margin-bottom: 12px;
 }
 
 .mail-lg {
-  font-family: var(--font-display);
-  font-size: clamp(1.3rem, 6vw, 1.9rem);
+  display: inline-block;
+  font-size: clamp(1.4rem, 6vw, 2.4rem);
   color: var(--text-0);
-  font-weight: 500;
-  letter-spacing: -0.01em;
+  font-weight: 600;
+  letter-spacing: -0.038em;
   word-break: break-word;
-  transition: color 0.2s var(--ease);
+  border-bottom: 2px solid var(--accent-line);
+  padding-bottom: 2px;
+  transition: border-color 0.18s var(--ease), color 0.18s var(--ease);
 }
 
-.mail-lg:hover { color: var(--accent-light); }
+.mail-lg:hover { color: var(--accent); border-color: var(--accent); }
 
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: 0;
   max-width: 900px;
 }
 
 .contact-card {
-  background: var(--bg-2);
-  border: 1px solid var(--border-soft);
-  border-radius: var(--radius);
-  padding: clamp(24px, 5vw, 30px);
-  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
-}
-
-.contact-card:hover {
-  border-color: var(--border-copper);
-  transform: translateY(-4px);
+  padding: 20px 0;
+  border-top: 1px solid var(--border-soft);
+  background: none;
 }
 
 .contact-card .label {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.64rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--text-muted);
   display: block;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
-.contact-card h3 { font-size: 1.15rem; margin-bottom: 10px; }
+.contact-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
 
-.contact-card p { font-size: 0.94rem; color: var(--text-2); margin-bottom: 0; }
+.contact-card p { font-size: 0.92rem; color: var(--text-2); margin-bottom: 0; max-width: 40ch; }
 
 /* Contact form (styles ready for when the form is uncommented) */
 .contact-form {
   max-width: 560px;
-  margin: clamp(28px, 5vw, 40px) 0 0;
+  margin: clamp(24px, 4vw, 36px) 0 0;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
 }
 
 .contact-form label {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-muted);
+  gap: 7px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-1);
 }
 
 .contact-form input,
 .contact-form textarea {
   font-family: var(--font-body);
   font-size: 1rem;
-  color: var(--text-1);
-  background: var(--bg-2);
+  color: var(--text-0);
+  background: #FFFFFF;
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
-  padding: 14px 16px;
-  transition: border-color 0.2s var(--ease);
+  padding: 13px 14px;
+  transition: border-color 0.18s var(--ease), box-shadow 0.18s var(--ease);
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
   border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-wash);
 }
 
 /* ---------- RESPONSIVE ---------- */
 @media (min-width: 720px) {
-  .contact-grid { grid-template-columns: repeat(3, 1fr); }
+  .contact-grid { grid-template-columns: repeat(3, 1fr); column-gap: 40px; }
+  .contact-card { padding: 22px 0 0; }
+}
+
+/* Tablet range: the contents rail is still full width but the
+   sidebar layout hasn't kicked in yet, so lay the links out in
+   two columns instead of one very tall, mostly empty column. */
+@media (min-width: 600px) and (max-width: 899px) {
+  .toc-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 28px;
+  }
+}
+
+@media (min-width: 900px) {
+  .legal-layout {
+    flex-direction: row;
+    gap: 64px;
+  }
+  .legal-toc {
+    flex: 0 0 216px;
+    position: sticky;
+    top: calc(var(--nav-height) + 24px);
+    border-bottom: 0;
+    border-top: 0;
+    border-left: 1px solid var(--border-soft);
+    padding: 2px 0 2px 20px;
+    order: 2;
+  }
+  .legal-content { flex: 1 1 auto; order: 1; }
 }

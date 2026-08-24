@@ -4,9 +4,11 @@
       from HOME_PLANS so the homepage never shows a stale price.
       HOME_PLANS mirrors the PLANS config in js/checkout.js —
       if a price or duration changes there, change it here too.
-   2. Sticky mobile "Get Started" button: appears after the
-      visitor scrolls past the hero, disappears once the final
-      CTA is on screen. Desktop is unaffected (hidden in CSS).
+   2. Sticky mobile "Get Started" button: visible from the first
+      paint (CSS shows it by default on phones, so it is there
+      even before this script runs). This file only hides it
+      again while the final CTA is on screen, so the same action
+      is never offered twice. Desktop is unaffected (hidden in CSS).
    ============================================================ */
 
 (function () {
@@ -35,39 +37,32 @@
 
   /* ----------------------------------------------------------
      2. STICKY MOBILE CTA
-     Two observers:
-       - hero: while the hero is visible, the button stays hidden
-       - final CTA: while it's visible, the button hides again
-     If IntersectionObserver is unavailable, the button simply
-     never shows — the page works exactly as before.
+     Shown from load. One observer on the final CTA: while that
+     section is on screen the bar slides away (.is-hidden) so it
+     doesn't duplicate the same button. If IntersectionObserver
+     is unavailable, the bar simply stays visible — which is the
+     safe default.
      ---------------------------------------------------------- */
   function initStickyCta() {
     var sticky = document.getElementById("sticky-cta");
-    var hero = document.getElementById("hero");
-    var finalCta = document.getElementById("final-cta");
+    if (!sticky) return;
 
-    if (!sticky || !hero || !finalCta) return;
-    if (!("IntersectionObserver" in window)) return;
-
-    var pastHero = false;
-    var finalVisible = false;
     var link = sticky.querySelector("a");
 
-    function update() {
-      var show = pastHero && !finalVisible;
-      sticky.classList.toggle("show", show);
+    function setVisible(show) {
+      sticky.classList.toggle("is-hidden", !show);
       sticky.setAttribute("aria-hidden", String(!show));
       if (link) link.setAttribute("tabindex", show ? "0" : "-1");
     }
 
-    new IntersectionObserver(function (entries) {
-      pastHero = !entries[0].isIntersecting;
-      update();
-    }, { threshold: 0 }).observe(hero);
+    /* Available immediately — no scrolling required. */
+    setVisible(true);
+
+    var finalCta = document.getElementById("final-cta");
+    if (!finalCta || !("IntersectionObserver" in window)) return;
 
     new IntersectionObserver(function (entries) {
-      finalVisible = entries[0].isIntersecting;
-      update();
+      setVisible(!entries[0].isIntersecting);
     }, { threshold: 0.15 }).observe(finalCta);
   }
 

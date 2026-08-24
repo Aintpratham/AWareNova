@@ -1,68 +1,62 @@
 /* ============================================================
    SEE PROOF PAGE STYLES (pages/proof.html)
-   Customer review grid, review modal, optional in-card shift
-   proof images with lightbox, disclaimer, and CTA. Mobile-first:
-   one column on small phones, two when space permits, three on
-   desktop. Review content lives in js/proof.js — edit it there.
+   Review grid, review modal, optional in-card shift proof images
+   with lightbox, disclaimer, and CTA. Reviews read as an
+   editorial index: hairline-separated entries with the proof
+   screenshot framed underneath. Mobile-first: one column on
+   phones, two when space permits, three on desktop.
+   Review content lives in js/proof.js — edit it there.
    ============================================================ */
 
 .proof-hero {
-  text-align: center;
-  padding: clamp(56px, 11vw, 110px) 0 clamp(20px, 4vw, 32px);
+  text-align: left;
+  padding: clamp(36px, 6vw, 80px) 0 clamp(18px, 3.5vw, 30px);
+  border-bottom: 1px solid var(--border-soft);
 }
 
-.proof-hero .eyebrow { margin-bottom: 22px; }
+.proof-hero .eyebrow { margin-bottom: 14px; }
 
 .proof-hero p {
-  max-width: 620px;
-  margin: 18px auto 0;
-  font-size: 1.05rem;
+  max-width: 62ch;
+  margin: 14px 0 0;
+  font-size: 1.02rem;
+  color: var(--text-2);
 }
 
 /* Shared block rhythm */
-.proof-block {
-  padding: clamp(44px, 8vw, 80px) 0;
-  border-top: 1px solid var(--border-soft);
-}
+.proof-block { padding: clamp(36px, 6vw, 76px) 0; }
 
-.block-head { margin-bottom: clamp(28px, 5vw, 40px); }
+.block-head { margin-bottom: clamp(22px, 4vw, 36px); }
 
 .block-head h2 { margin-bottom: 8px; }
 
 .block-note {
   color: var(--text-muted);
-  font-size: 0.98rem;
+  font-size: 0.93rem;
+  max-width: 62ch;
 }
 
-.block-note + .block-note {
-  margin-top: 6px;
-  max-width: 640px;
-}
+.block-note + .block-note { margin-top: 5px; }
 
 /* ============================================================
    1. REVIEW GRID
-   All eight reviews visible at once — no carousel, no swiping.
+   All reviews visible at once — no carousel, no swiping.
    ============================================================ */
 .reviews-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: 0;
+  border-top: 1px solid var(--border-soft);
 }
 
-/* ---------- Review card ---------- */
 .review-card {
   display: flex;
   flex-direction: column;
-  background: var(--bg-2);
-  border: 1px solid var(--border-soft);
-  border-radius: var(--radius);
-  overflow: hidden;
-  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
-}
-
-.review-card:hover {
-  border-color: var(--border-copper);
-  transform: translateY(-3px);
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--border-soft);
+  border-radius: 0;
+  padding: 22px 0 26px;
 }
 
 /* The written review is one large tap target opening the modal */
@@ -71,10 +65,10 @@
   flex-direction: column;
   align-items: flex-start;
   flex: 1 1 auto;
-  gap: 12px;
+  gap: 10px;
   width: 100%;
   text-align: left;
-  padding: 24px 22px 20px;
+  padding: 0;
   background: none;
   border: 0;
   color: var(--text-1);
@@ -83,82 +77,77 @@
 }
 
 .review-open:focus-visible {
-  outline: 2px solid var(--accent-light);
-  outline-offset: -3px;
-  border-radius: var(--radius);
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 
 .review-stars {
   display: inline-flex;
-  gap: 3px;
+  gap: 2px;
   color: var(--accent);
 }
 
 .review-stars svg,
-.modal-stars svg {
-  width: 16px;
-  height: 16px;
-}
+.modal-stars svg { width: 13px; height: 13px; }
 
 .review-title {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.1rem;
+  font-weight: 600;
+  font-size: 1.02rem;
   color: var(--text-0);
-  letter-spacing: -0.01em;
-  line-height: 1.25;
+  letter-spacing: -0.024em;
+  line-height: 1.3;
 }
 
-/* Readable preview, clamped so cards stay balanced */
+.review-open:hover .review-title { color: var(--accent); }
+
+/* Readable preview, clamped so entries stay balanced */
 .review-preview {
-  font-size: 0.94rem;
-  line-height: 1.6;
+  font-size: 0.93rem;
+  line-height: 1.62;
   color: var(--text-2);
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 .review-foot {
   margin-top: auto;
-  padding-top: 14px;
+  padding-top: 12px;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 10px;
-  border-top: 1px solid var(--border-soft);
 }
 
 .review-name {
-  font-family: var(--font-mono);
-  font-size: 0.84rem;
-  color: var(--text-1);
-  letter-spacing: 0.02em;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--text-0);
 }
 
-/* Subtle Verified Customer label (cards + modal) */
+/* Quiet Verified Customer label — text, not a pill */
 .verified-pill {
   display: inline-flex;
   align-items: center;
   gap: 5px;
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.58rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--accent);
-  background: rgba(197, 139, 92, 0.08);
-  border: 1px solid var(--border-copper);
-  padding: 4px 9px;
-  border-radius: var(--radius-pill);
+  color: var(--text-muted);
+  background: none;
+  border: 0;
+  padding: 0;
   white-space: nowrap;
 }
 
 .verified-pill svg {
-  width: 11px;
-  height: 11px;
+  width: 10px;
+  height: 10px;
   flex-shrink: 0;
+  color: var(--accent);
 }
 
 /* ============================================================
@@ -171,21 +160,21 @@
 .review-proof {
   position: relative;
   display: block;
-  width: calc(100% - 32px);
-  margin: 0 16px 16px;
+  width: 100%;
+  margin: 16px 0 0;
   padding: 0;
   background: var(--bg-1);
-  border: 1px solid var(--border-copper);
+  border: 1px solid var(--border-soft);
   border-radius: var(--radius-sm);
   overflow: hidden;
   cursor: zoom-in;
-  transition: border-color 0.3s var(--ease);
+  transition: border-color 0.18s var(--ease);
 }
 
 .review-proof:hover { border-color: var(--accent); }
 
 .review-proof:focus-visible {
-  outline: 2px solid var(--accent-light);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
@@ -198,19 +187,17 @@
 
 .proof-label {
   position: absolute;
-  left: 10px;
-  bottom: 10px;
+  left: 8px;
+  bottom: 8px;
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.56rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text-1);
-  background: rgba(5, 5, 5, 0.68);
-  border: 1px solid var(--border-soft);
-  padding: 4px 10px;
-  border-radius: var(--radius-pill);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
+  color: #FFFFFF;
+  background: rgba(12, 15, 22, 0.78);
+  border: 0;
+  padding: 4px 9px;
+  border-radius: 4px;
 }
 
 /* ============================================================
@@ -234,101 +221,96 @@ body.modal-open { overflow: hidden; }
    visible on page load. This keeps them hidden until proof.js
    removes the hidden attribute. */
 .review-modal[hidden],
-.lightbox[hidden] {
-  display: none !important;
-}
+.lightbox[hidden] { display: none !important; }
 
 .modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(5, 5, 5, 0.78);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  background: rgba(12, 15, 22, 0.5);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
 
 .modal-close {
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: 10px;
+  right: 10px;
   z-index: 2;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg-3);
-  border: 1px solid var(--border-strong);
-  border-radius: 50%;
-  color: var(--text-1);
+  background: none;
+  border: 0;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
   cursor: pointer;
-  transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
+  transition: color 0.18s var(--ease), background-color 0.18s var(--ease);
 }
 
-.modal-close:hover {
-  border-color: var(--accent);
-  color: var(--accent-light);
-}
+.modal-close:hover { color: var(--text-0); background: var(--bg-1); }
 
 .modal-close:focus-visible {
-  outline: 2px solid var(--accent-light);
-  outline-offset: 3px;
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
 }
 
-.modal-close svg { width: 16px; height: 16px; }
+.modal-close svg { width: 15px; height: 15px; }
 
 /* ---------- Review modal panel ---------- */
 .modal-panel {
   position: relative;
   z-index: 1;
-  width: min(520px, 100%);
+  width: min(540px, 100%);
   max-height: min(80vh, 80dvh);
   overflow-y: auto;
-  padding: clamp(26px, 6vw, 40px);
+  padding: clamp(26px, 5vw, 40px);
   background: var(--bg-2);
-  border: 1px solid var(--border-copper);
+  border: 0;
   border-radius: var(--radius);
-  box-shadow: var(--shadow-md);
-  animation: modal-in 0.3s var(--ease);
+  box-shadow: var(--shadow-lg);
+  animation: modal-in 0.24s var(--ease);
 }
 
 @keyframes modal-in {
-  from { opacity: 0; transform: translateY(14px); }
+  from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: none; }
 }
 
 .modal-stars {
   display: inline-flex;
-  gap: 3px;
+  gap: 2px;
   color: var(--accent);
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .modal-panel h3 {
+  font-size: 1.2rem;
   margin-bottom: 12px;
-  padding-right: 36px;
+  padding-right: 40px;
 }
 
 .modal-body {
-  font-size: 0.98rem;
-  line-height: 1.7;
+  font-size: 0.97rem;
+  line-height: 1.72;
   color: var(--text-2);
 }
 
 .modal-meta {
   margin-top: 22px;
-  padding-top: 16px;
+  padding-top: 14px;
   border-top: 1px solid var(--border-soft);
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
 }
 
 .modal-name {
-  font-family: var(--font-mono);
   font-size: 0.88rem;
-  color: var(--text-1);
+  font-weight: 500;
+  color: var(--text-0);
 }
 
 /* ---------- Lightbox panel ---------- */
@@ -340,73 +322,82 @@ body.modal-open { overflow: hidden; }
   display: flex;
   flex-direction: column;
   background: var(--bg-2);
-  border: 1px solid var(--border-copper);
+  border: 0;
   border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: var(--shadow-md);
-  animation: modal-in 0.3s var(--ease);
+  box-shadow: var(--shadow-lg);
+  animation: modal-in 0.24s var(--ease);
 }
 
 .lightbox-panel img {
   width: 100%;
   height: auto;
-  max-height: calc(86vh - 60px);
-  max-height: calc(86dvh - 60px);
+  max-height: calc(86vh - 56px);
+  max-height: calc(86dvh - 56px);
   object-fit: contain;
-  background: var(--bg-0);
+  background: var(--bg-1);
 }
 
 .lightbox-panel figcaption {
   padding: 12px 18px;
   font-family: var(--font-mono);
-  font-size: 0.74rem;
-  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
+  border-top: 1px solid var(--border-soft);
 }
 
 /* ============================================================
    4. DISCLAIMER + CTA
    ============================================================ */
-.proof-disclaimer {
-  padding: clamp(28px, 5vw, 44px) 0 0;
-  border-top: 1px solid var(--border-soft);
-}
+.proof-disclaimer { padding: clamp(24px, 4vw, 40px) 0 0; }
 
 .disclaimer-text {
-  max-width: 680px;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 0.86rem;
-  line-height: 1.7;
+  max-width: 68ch;
+  margin: 0;
+  text-align: left;
+  font-size: 0.84rem;
+  line-height: 1.72;
   color: var(--text-muted);
 }
 
+/* Closing CTA is a band, not a rounded card */
+.proof-cta { background: var(--bg-1); border-top: 1px solid var(--border-soft); }
+
 .proof-cta-card {
-  text-align: center;
-  max-width: 620px;
-  margin: 0 auto;
-  padding: clamp(32px, 7vw, 52px);
-  background: linear-gradient(180deg, rgba(197, 139, 92, 0.06), var(--bg-2) 45%);
-  border: 1px solid var(--border-copper);
-  border-radius: var(--radius);
+  text-align: left;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: 0;
 }
 
-.proof-cta-card h2 { margin-bottom: 12px; }
-.proof-cta-card p { margin-bottom: 28px; color: var(--text-2); }
+.proof-cta-card h2 { margin-bottom: 10px; max-width: 20ch; }
+.proof-cta-card p { margin-bottom: 24px; color: var(--text-2); max-width: 52ch; }
+
+@media (min-width: 860px) {
+  .proof-cta-card {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    column-gap: 56px;
+  }
+  .proof-cta-card h2 { grid-column: 1; }
+  .proof-cta-card p { grid-column: 1; margin-bottom: 0; }
+  .proof-cta-card .btn { grid-column: 2; grid-row: 1 / span 2; align-self: end; }
+}
 
 /* ============================================================
    5. RESPONSIVE
    ============================================================ */
 @media (min-width: 640px) {
-  .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+  .reviews-grid { grid-template-columns: repeat(2, 1fr); column-gap: 40px; }
 }
 
 @media (min-width: 960px) {
-  .reviews-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
+  .reviews-grid { grid-template-columns: repeat(3, 1fr); column-gap: 36px; }
 }
 
 /* ============================================================

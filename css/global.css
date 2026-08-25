@@ -343,15 +343,22 @@ main {
 .nav-logo .mark { color: var(--accent); }
 
 /* ---------- LOGO MARK ----------
-   Original inline SVG: a script capital N in white on a soft
-   squircle badge. The badge is filled from --accent so it tracks
-   whatever colour js/accent.js picked for this page load, in sync
-   with the Get Started buttons and the Phase5 wordmark. The N
-   itself is always white and never uses the accent, so it stays
-   legible on every palette entry.
+   Original inline SVG: an angular handwritten capital N — two
+   upright strokes joined by one diagonal, with slightly different
+   stem leans so it reads as drawn rather than typeset — in white
+   on a soft squircle badge.
 
-   The same geometry ships as assets/logo-n.svg for the favicon
-   and apple-touch-icon, which cannot read custom properties. */
+   The badge is filled from --accent so it tracks whatever colour
+   js/accent.js picked for this page load, in sync with the Get
+   Started buttons and the Phase5 wordmark. The N itself is always
+   white and never uses the accent, so it stays legible on every
+   palette entry.
+
+   The same geometry is rendered to the static icons in /assets
+   (favicon.ico, favicon-32.png, favicon-192.png,
+   apple-touch-icon.png) by make_icons.py. Favicons are fetched
+   outside the page's CSS context, so those stay fixed cobalt.
+   If the path below changes, regenerate those rasters to match. */
 .site-nav .nav-badge {
   height: 28px;
   width: 28px;
@@ -370,7 +377,7 @@ main {
 .nav-badge .badge-n {
   fill: none;
   stroke: #FFFFFF;
-  stroke-width: 3.3;
+  stroke-width: 3.6;
   stroke-linecap: round;
   stroke-linejoin: round;
 }

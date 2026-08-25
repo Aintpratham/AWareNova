@@ -342,12 +342,37 @@ main {
 
 .nav-logo .mark { color: var(--accent); }
 
-.site-nav .nav-logo img {
-  height: 26px;
-  width: auto;
+/* ---------- LOGO MARK ----------
+   Original inline SVG: a script capital N in white on a soft
+   squircle badge. The badge is filled from --accent so it tracks
+   whatever colour js/accent.js picked for this page load, in sync
+   with the Get Started buttons and the Phase5 wordmark. The N
+   itself is always white and never uses the accent, so it stays
+   legible on every palette entry.
+
+   The same geometry ships as assets/logo-n.svg for the favicon
+   and apple-touch-icon, which cannot read custom properties. */
+.site-nav .nav-badge {
+  height: 28px;
+  width: 28px;
   display: block;
   flex-shrink: 0;
   margin-right: 2px;
+  border-radius: 8px;   /* matches the rx, so any focus ring hugs the badge */
+}
+
+.nav-badge .badge-bg {
+  fill: var(--accent);
+  transition: fill 0.18s var(--ease);
+}
+
+/* Never accent-coloured — white on every palette entry. */
+.nav-badge .badge-n {
+  fill: none;
+  stroke: #FFFFFF;
+  stroke-width: 3.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .nav-links {

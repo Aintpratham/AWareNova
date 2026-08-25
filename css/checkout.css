@@ -49,7 +49,7 @@
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-micro);
   display: block;
   margin-bottom: 12px;
 }
@@ -92,14 +92,14 @@
   font-size: 0.62rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-micro);
   display: block;
   margin-bottom: 5px;
 }
 
 .summary-rows .s-item .v {
   font-size: 1rem;
-  color: var(--text-0);
+  color: var(--text-strong);
   font-weight: 500;
 }
 
@@ -149,7 +149,7 @@
 .purchase-form input {
   font-family: var(--font-body);
   font-size: 1rem;
-  color: var(--text-0);
+  color: var(--text-strong);
   background: #FFFFFF;
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
@@ -204,7 +204,7 @@
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-micro);
   display: block;
   margin-bottom: 14px;
 }
@@ -284,7 +284,7 @@
   font-size: 0.62rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-micro);
   display: block;
   margin-bottom: 9px;
 }
@@ -317,7 +317,7 @@
   transition: border-color 0.18s var(--ease), color 0.18s var(--ease);
 }
 
-.copy-btn:hover { border-color: var(--text-0); color: var(--text-0); }
+.copy-btn:hover { border-color: var(--text-strong); color: var(--text-strong); }
 
 .copy-btn:disabled { opacity: 0.45; cursor: not-allowed; }
 

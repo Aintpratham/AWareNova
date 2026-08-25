@@ -93,7 +93,7 @@
 .review-title {
   font-weight: 600;
   font-size: 1.02rem;
-  color: var(--text-0);
+  color: var(--text-strong);
   letter-spacing: -0.024em;
   line-height: 1.3;
 }
@@ -124,7 +124,7 @@
 .review-name {
   font-size: 0.86rem;
   font-weight: 500;
-  color: var(--text-0);
+  color: var(--text-strong);
 }
 
 /* Quiet Verified Customer label — text, not a pill */
@@ -136,7 +136,7 @@
   font-size: 0.58rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-micro);
   background: none;
   border: 0;
   padding: 0;
@@ -249,7 +249,7 @@ body.modal-open { overflow: hidden; }
   transition: color 0.18s var(--ease), background-color 0.18s var(--ease);
 }
 
-.modal-close:hover { color: var(--text-0); background: var(--bg-1); }
+.modal-close:hover { color: var(--text-strong); background: var(--bg-1); }
 
 .modal-close:focus-visible {
   outline: 2px solid var(--accent);
@@ -310,7 +310,7 @@ body.modal-open { overflow: hidden; }
 .modal-name {
   font-size: 0.88rem;
   font-weight: 500;
-  color: var(--text-0);
+  color: var(--text-strong);
 }
 
 /* ---------- Lightbox panel ---------- */
@@ -344,7 +344,7 @@ body.modal-open { overflow: hidden; }
   font-size: 0.68rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-micro);
   border-top: 1px solid var(--border-soft);
 }
 

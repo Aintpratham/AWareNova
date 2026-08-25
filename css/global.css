@@ -4,9 +4,13 @@
    buttons, footer, and shared utilities.
 
    DESIGN SYSTEM (2026 rebuild):
-   White base, cool blue-gray secondary surfaces, near-black
-   text, one cobalt accent used sparingly. Flat surfaces, hairline
-   rules instead of boxes, no gradients, no metallic colour.
+   White base, cool blue-gray secondary surfaces, and a fixed
+   six-step neutral text ladder. One accent, used sparingly — and
+   that accent is chosen per page load by js/accent.js from a
+   curated palette, so every component on a given page shares the
+   same colour while successive loads may differ. Flat surfaces,
+   hairline rules instead of boxes, no gradients, no metallic
+   colour. Text colours are never randomised.
 
    Mobile-first: base rules target phones. Larger breakpoints
    scale type and layout up. Most visitors arrive from
@@ -20,35 +24,41 @@
 :root {
   /* Surfaces */
   --bg-0: #FFFFFF;          /* page base */
-  --bg-1: #F4F6FA;          /* alternating band / raised surface */
+  --bg-1: #F5F7FA;          /* alternating band / raised surface */
   --bg-2: #FFFFFF;          /* cards / panels */
   --bg-3: #FAFBFD;          /* hover / inset */
-  --bg-ink: #0C0F16;        /* inverted band */
+  --bg-ink: #0B0D12;        /* inverted band */
 
-  /* Text — near-black through cool grays */
-  --text-0: #0A0C11;        /* headings */
-  --text-1: #232936;        /* body */
-  --text-2: #4E5668;        /* secondary body */
-  --text-muted: #6B7385;    /* fine print, labels */
+  /* Text — a deliberate six-step neutral ladder, never randomised.
+     Only the accent below changes between page loads. */
+  --text-0: #0B0D12;        /* display headings (h1) */
+  --text-strong: #1D222B;   /* secondary headings, strong text */
+  --text-1: #48505E;        /* normal body */
+  --text-2: #525A69;        /* secondary body */
+  --text-muted: #687181;    /* supporting text, functional fine print */
+  --text-micro: #858D9B;    /* decorative micro-labels only */
 
-  /* Accent — cobalt. One colour, used sparingly. */
+  /* Accent — chosen per page load by js/accent.js from a curated
+     palette and written onto documentElement, which outranks this
+     block. The cobalt values below are the no-JS fallback only. */
   --accent: #1F3FD1;
-  --accent-hover: #16309F;
-  --accent-wash: #EEF1FE;   /* faint tint for washes */
-  --accent-line: #C6D0FA;   /* accent-tinted hairline */
+  --accent-hover: #1A35B0;
+  --accent-wash: #EFF2FD;   /* faint tint for washes / focus rings */
+  --accent-line: #BFC8F5;   /* accent-tinted hairline */
 
-  /* Legacy token aliases — mapped to the new palette so no
-     stylesheet can accidentally reintroduce the old colour. */
-  --accent-light: #16309F;
-  --accent-dark: #16309F;
-  --accent-soft: #1F3FD1;
-  --border-copper: #C6D0FA;
-  --glow-copper: rgba(31, 63, 209, 0.16);
-  --wash-copper: #EEF1FE;
+  /* Legacy token aliases. They resolve to the live accent
+     variables, so they follow whatever accent.js picked and can
+     never reintroduce the retired bronze identity. */
+  --accent-light: var(--accent-hover);
+  --accent-dark: var(--accent-hover);
+  --accent-soft: var(--accent);
+  --border-copper: var(--accent-line);
+  --glow-copper: var(--accent-wash);
+  --wash-copper: var(--accent-wash);
 
   /* Lines */
-  --border-soft: #E5E9F0;
-  --border-strong: #CFD5E1;
+  --border-soft: #E1E5EB;
+  --border-strong: #CDD3DC;
 
   /* Typography — Inter throughout, mono reserved for micro-labels */
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -146,7 +156,7 @@ ul {
    do the work rather than a second display face. */
 h1, h2, h3, h4 {
   font-family: var(--font-body);
-  color: var(--text-0);
+  color: var(--text-strong);
   font-weight: 600;
   line-height: 1.12;
   letter-spacing: -0.032em;
@@ -157,6 +167,7 @@ h1 {
   font-size: clamp(2rem, 7.4vw, 3.5rem);
   font-weight: 700;
   letter-spacing: -0.038em;
+  color: var(--text-0);
 }
 
 h2 {
@@ -183,7 +194,7 @@ p { color: var(--text-2); text-wrap: pretty; }
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-micro);
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -277,7 +288,7 @@ main {
 /* Secondary — quiet outline that defers to the primary action */
 .btn-secondary {
   background: transparent;
-  color: var(--text-0);
+  color: var(--text-strong);
   border-color: var(--border-strong);
 }
 
@@ -357,9 +368,9 @@ main {
   transition: color 0.18s var(--ease);
 }
 
-.nav-links a:hover { color: var(--text-0); }
+.nav-links a:hover { color: var(--text-strong); }
 
-.nav-links a.active { color: var(--text-0); }
+.nav-links a.active { color: var(--text-strong); }
 
 /* Get Started reads as a compact solid button */
 .nav-links a.nav-cta {
@@ -487,7 +498,7 @@ main {
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-micro);
   margin-bottom: 8px;
 }
 
